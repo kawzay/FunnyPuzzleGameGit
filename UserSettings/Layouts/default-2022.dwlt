@@ -74,8 +74,20 @@ MonoBehaviour:
     height: 715.2
   m_ShowMode: 4
   m_Title: Inspector
+<<<<<<< HEAD
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
+=======
+<<<<<<< HEAD
+  m_RootView: {fileID: 6}
+  m_MinSize: {x: 875, y: 371}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_Maximized: 0
+--- !u!114 &2
+=======
+  m_RootView: {fileID: 9}
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> remotes/origin/main
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -150,6 +162,10 @@ MonoBehaviour:
   controlID: 112
 >>>>>>> remotes/origin/Igor
 --- !u!114 &5
+<<<<<<< HEAD
+=======
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,10 +202,20 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 321}
   m_MaxSize: {x: 16192, y: 12117}
   vertical: 0
+<<<<<<< HEAD
   controlID: 97
 --- !u!114 &3
 >>>>>>> remotes/origin/main
 >>>>>>> remotes/origin/Igor
+=======
+<<<<<<< HEAD
+  controlID: 97
+--- !u!114 &3
+=======
+  controlID: 57
+--- !u!114 &6
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,10 +442,20 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 321}
   m_MaxSize: {x: 8096, y: 12117}
   vertical: 1
+<<<<<<< HEAD
   controlID: 39
 --- !u!114 &10
 >>>>>>> remotes/origin/main
 >>>>>>> remotes/origin/Igor
+=======
+<<<<<<< HEAD
+  controlID: 39
+--- !u!114 &10
+=======
+  controlID: 58
+--- !u!114 &13
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,10 +492,20 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 40
 --- !u!114 &11
 >>>>>>> remotes/origin/main
 >>>>>>> remotes/origin/Igor
+=======
+<<<<<<< HEAD
+  controlID: 40
+--- !u!114 &11
+=======
+  controlID: 59
+--- !u!114 &14
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -636,6 +682,7 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: c05f0000
     m_LastClickedID: 24512
     m_ExpandedIDs: 00000000925f000000ca9a3bffffff7f
@@ -650,6 +697,16 @@ MonoBehaviour:
     m_ExpandedIDs: 000000001e63000088680000046b000000ca9a3bffffff7f
 >>>>>>> remotes/origin/main
 >>>>>>> remotes/origin/Igor
+=======
+    m_SelectedIDs: 20630000
+    m_LastClickedID: 25376
+    m_ExpandedIDs: 000000001e63000088680000046b000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: c05f0000
+    m_LastClickedID: 24512
+    m_ExpandedIDs: 00000000925f000000ca9a3bffffff7f
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -820,6 +877,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 24fbffff
@@ -834,6 +892,16 @@ MonoBehaviour:
       m_ExpandedIDs: 7ab3ffffcab3ffff9cc1ffff32c2ffff84c2ffffdac5ffffd8c6ffffd8caffff24cbffff72cbffffb2cbfffffecbffff40ccffffccdefffffadeffff3edfffff84dfffff18e0ffffb8e0ffff0ce1ffff5ae1ffff9ae1ffffe8e1ffff56e2ffff18fbffff688700006c8700008e870000c6870000e8870000728b0000c48b00005a8d00005a8e0000ac8e0000529100005c910000a4910000ae9100003a9400008c940000
 >>>>>>> remotes/origin/main
 >>>>>>> remotes/origin/Igor
+=======
+      m_SelectedIDs: 6c940000
+      m_LastClickedID: 37996
+      m_ExpandedIDs: 7ab3ffffcab3ffff9cc1ffff32c2ffff84c2ffffdac5ffffd8c6ffffd8caffff24cbffff72cbffffb2cbfffffecbffff40ccffffccdefffffadeffff3edfffff84dfffff18e0ffffb8e0ffff0ce1ffff5ae1ffff9ae1ffffe8e1ffff56e2ffff18fbffff688700006c8700008e870000c6870000e8870000728b0000c48b00005a8d00005a8e0000ac8e0000529100005c910000a4910000ae9100003a9400008c940000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 24fbffff
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -850,10 +918,17 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 7}
 =======
         m_ClientGUIView: {fileID: 4}
 >>>>>>> remotes/origin/Igor
+=======
+        m_ClientGUIView: {fileID: 4}
+=======
+        m_ClientGUIView: {fileID: 7}
+>>>>>>> remotes/origin/dmitry
+>>>>>>> remotes/origin/main
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
