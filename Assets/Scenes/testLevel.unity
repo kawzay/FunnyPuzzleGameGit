@@ -1905,15 +1905,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce752d12c3cac44ab1095e69242e469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  S1: {fileID: 0}
-  S2: {fileID: 0}
-  S3: {fileID: 0}
-  S4: {fileID: 0}
-  S5: {fileID: 0}
-  S6: {fileID: 0}
-  S7: {fileID: 0}
-  S8: {fileID: 0}
-  S9: {fileID: 0}
+  S1: {fileID: 984841660}
+  S2: {fileID: 2097200742}
+  S3: {fileID: 937533957}
+  S4: {fileID: 874723606}
+  S5: {fileID: 1379051717}
+  S6: {fileID: 1545785647}
+  S7: {fileID: 459474012}
+  S8: {fileID: 1666233598}
+  S9: {fileID: 2097044489}
 --- !u!1 &1287032767
 GameObject:
   m_ObjectHideFlags: 0
