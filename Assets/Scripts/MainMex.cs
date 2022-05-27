@@ -2,9 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMex : MonoBehaviour
 {
+    public TextMeshProUGUI Text;
+    public TextMeshProUGUI MaxValue;
+    RectTransform transform;
+    public GameObject StatusBar;
+    public GameObject StatusBack;
+    public GameObject LastStar;
+    public GameObject LastStar2;
+    public GameObject LastStar3;
+    public GameObject Shadow;
+    public TextMeshProUGUI TxtLvl;
+    public int points;
+    public int OneStar;
+    public int TwoStar;
+    private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
+    private int stars = 3;
+    float piece;
+    int flag = 1;
+
+
     public Image S1;
     public Image S2;
     public Image S3;
@@ -15,11 +35,22 @@ public class MainMex : MonoBehaviour
     public Image S8;
     public Image S9;
 
-    //public static event OnSwipeInput SwipeEvent;
+    private bool win = false;
+
+    public int one;
+    public int two;
+    public int three;
+    public int four;
+    public int five;
+    public int six;
+    public int seven;
+    public int eight;
+    public int nine;
+
     public delegate void OnSwipeInput(Vector2 dec);
     private Vector2 tapPos;
     private Vector2 swipeDelta;
-    private float deadZone = 1;
+    private readonly float deadZone = 60;
 
     private bool isSwiped;
     private bool isMobile;
@@ -28,8 +59,14 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(points);
         isMobile = Application.isMobilePlatform;
-        Debug.Log("старт");
+        Shadow.SetActive(false);
+        Text.text = points.ToString();
+        //Text.GetComponent<Text>().text
+        MaxValue.text = points.ToString();
+        transform = StatusBack.GetComponent<RectTransform>();
+        piece = transform.sizeDelta.x / points;
     }
 
     // Update is called once per frame
@@ -41,15 +78,6 @@ public class MainMex : MonoBehaviour
             {
                 isSwiped = true;
                 tapPos = Input.mousePosition;
-                Debug.Log("кликнули позицию");
-                Debug.Log(tapPos.x);
-                Debug.Log(tapPos.y);
-                //Debug.Log(First.sqr.position);
-                //Debug.Log(Sec.sqr.position);
-                //Debug.Log(Thr.sqr.position);
-                //Debug.Log(Four.sqr.position);
-                //Debug.Log(Five.sqr.position);
-                //Debug.Log(Six.sqr.position);
             }
             else if (Input.GetMouseButtonUp(0))
                 ResetSwipe();
@@ -62,23 +90,19 @@ public class MainMex : MonoBehaviour
                 {
                     isSwiped = true;
                     tapPos = Input.GetTouch(0).position;
-                    //Debug.Log("тапнули позицию");
                 }
                 else if (Input.GetTouch(0).phase == TouchPhase.Canceled ||
                     Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
-                    //Debug.Log("удалили свайп");
                     ResetSwipe();
                 }
             }
         }
-        //Debug.Log("чекнули свайп");
         CheckSwipe();
     }
 
     private void CheckSwipe()
     {
-
         var high = Screen.height;
         var widt = Screen.width;
 
@@ -107,77 +131,70 @@ public class MainMex : MonoBehaviour
         {
             if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
             {
-                if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
+                if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
                 {
-                    //if (tapPos.x > Fsquare.position.x - 1 && tapPos.x < Tsquare.position.x + 1)
-                    //{
-                    if (swipeDelta.x > 0)
+                    if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
                     {
-                        Debug.Log("вправо");
-                        MoveRightFirstLine(S1, S2, S3);
+                        if (swipeDelta.x > 0)
+                        {
+                            MoveRightFirstLine(S1, S2, S3);
+                        }
+                        else
+                        {
+                            MoveLeftFirstLine(S1, S2, S3);
+                        }
                     }
-                    else
+                    else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
                     {
-                        Debug.Log("влево");
-
-                        MoveLeftFirstLine(S1, S2, S3);
+                        if (swipeDelta.x > 0)
+                        {
+                            MoveRightSecondLine(S4, S5, S6);
+                        }
+                        else
+                        {
+                            MoveLeftSecondLine(S4, S5, S6);
+                        }
                     }
-                }
-                else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
-                {
-                    if (swipeDelta.x > 0)
+                    else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
                     {
-                        Debug.Log("вправо");
-                        MoveRightSecondLine(S4, S5, S6);
-                    }
-                    else
-                    {
-                        Debug.Log("влево");
-                        MoveLeftSecondLine(S4, S5, S6);
-                    }
-                }
-                else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
-                {
-                    if (swipeDelta.x > 0)
-                    {
-                        Debug.Log("вправо");
-                        MoveRightTrirdLine(S7, S8, S9);
-                    }
-                    else
-                    {
-                        Debug.Log("влево");
-                        MoveLeftThirdLine(S7, S8, S9);
+                        if (swipeDelta.x > 0)
+                        {
+                            MoveRightTrirdLine(S7, S8, S9);
+                        }
+                        else
+                        {
+                            MoveLeftThirdLine(S7, S8, S9);
+                        }
                     }
                 }
             }
             else
             {
-                if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                if (tapPos.y < firHigh + (firHigh - firHigh * 0.879) && tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh))
                 {
-                    if (swipeDelta.y > 0)
-                        MoveUpFirstLine(S1, S4, S7);
-                    else
-                        MoveDownFirstLine(S1, S4, S7);
-                }
-                if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
-                {
-                    if (swipeDelta.y > 0)
-                        MoveUpSecondLine(S2, S5, S8);
-                    else
-                        MoveDownSecondLine(S2, S5, S8);
-                }
-                if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
-                {
-                    if (swipeDelta.y > 0)
-                        MoveUpTrirdLine(S3, S6, S9);
-                    else
-                        MoveDownThirdLine(S3, S6, S9);
+                    if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                    {
+                        if (swipeDelta.y > 0)
+                            MoveUpFirstLine(S1, S4, S7);
+                        else
+                            MoveDownFirstLine(S1, S4, S7);
+                    }
+                    if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
+                    {
+                        if (swipeDelta.y > 0)
+                            MoveUpSecondLine(S2, S5, S8);
+                        else
+                            MoveDownSecondLine(S2, S5, S8);
+                    }
+                    if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                    {
+                        if (swipeDelta.y > 0)
+                            MoveUpTrirdLine(S3, S6, S9);
+                        else
+                            MoveDownThirdLine(S3, S6, S9);
+                    }
                 }
             }
-            //else
-            //    SwipeEvent(swipeDelta.y > 0 ? Vector2.up : Vector2.down);
-
-
             ResetSwipe();
         }
 
@@ -207,12 +224,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum1(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum2(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum3(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = one;
+        one = two;
+        two = three;
+        three = g;
+        CheckWin();
+        //coroutine1 = Enum1(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum2(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum3(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveRightFirstLine(Image S1, Image S2, Image S3)
@@ -224,12 +255,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
+<<<<<<< HEAD
         coroutine1 = Enum3(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum2(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum1(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int q = three;
+        three = two;
+        two = one;
+        one = q;
+        CheckWin();
+        //coroutine1 = Enum3(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum2(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum1(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveLeftSecondLine(Image S1, Image S2, Image S3)
@@ -241,12 +286,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum4(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum6(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = four;
+        four = five;
+        five = six;
+        six = g;
+        CheckWin();
+        //coroutine1 = Enum4(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum5(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum6(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveRightSecondLine(Image S1, Image S2, Image S3)
@@ -258,12 +317,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
+<<<<<<< HEAD
         coroutine1 = Enum6(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum4(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int q = six;
+        six = five;
+        five = four;
+        four = q;
+        CheckWin();
+        //coroutine1 = Enum6(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum5(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum4(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveLeftThirdLine(Image S1, Image S2, Image S3)
@@ -275,12 +348,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum7(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum8(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum9(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = seven;
+        seven = eight;
+        eight = nine;
+        nine = g;
+        CheckWin();
+        //coroutine1 = Enum7(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum8(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum9(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveRightTrirdLine(Image S1, Image S2, Image S3)
@@ -292,12 +379,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
+<<<<<<< HEAD
         coroutine1 = Enum9(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum8(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum7(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int q = nine;
+        nine = eight;
+        eight = seven;
+        seven = q;
+        CheckWin();
+        //coroutine1 = Enum9(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum8(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum7(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveUpFirstLine(Image S1, Image S2, Image S3)
@@ -309,29 +410,57 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum1(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum4(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum7(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = one;
+        one = four;
+        four = seven;
+        seven = g;
+        CheckWin();
+        //coroutine1 = Enum1(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum4(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum7(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveDownFirstLine(Image S1, Image S2, Image S3)
     {
         DoZeroSpriteFirstLineV();
 
-        var g = S3.sprite;
+        var q = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
-        S1.sprite = g;
+        S1.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum7(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum4(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum1(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = seven;
+        seven = four;
+        four = one;
+        one = g;
+        CheckWin();
+        //coroutine1 = Enum7(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum4(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum1(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveUpSecondLine(Image S1, Image S2, Image S3)
@@ -343,12 +472,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum2(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum8(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = two;
+        two = five;
+        five = eight;
+        eight = g;
+        CheckWin();
+        //coroutine1 = Enum2(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum5(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum8(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveDownSecondLine(Image S1, Image S2, Image S3)
@@ -360,12 +503,26 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
+<<<<<<< HEAD
         coroutine1 = Enum8(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum2(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int q = eight;
+        eight = five;
+        five = two;
+        two = q;
+        CheckWin();
+        //coroutine1 = Enum8(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum5(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum2(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void MoveUpTrirdLine(Image S1, Image S2, Image S3)
@@ -377,28 +534,56 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum3(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum6(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum9(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = three;
+        three = six;
+        six = nine;
+        nine = g;
+        CheckWin();
+        //coroutine1 = Enum3(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum6(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum9(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
     public void MoveDownThirdLine(Image S1, Image S2, Image S3)
     {
         DoZeroSpriteThirdLineV();
 
-        var g = S3.sprite;
+        var q = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
-        S1.sprite = g;
+        S1.sprite = q;
 
+<<<<<<< HEAD
         coroutine1 = Enum9(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum6(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum3(minimum, 0.012f);
         StartCoroutine(coroutine3);
+=======
+        int g = nine;
+        nine = six;
+        six = three;
+        three = g;
+        CheckWin();
+        //coroutine1 = Enum9(minimum, 0.008f);
+        //StartCoroutine(coroutine1);
+        //coroutine2 = Enum6(minimum, 0.010f);
+        //StartCoroutine(coroutine2);
+        //coroutine3 = Enum3(minimum, 0.012f);
+        //StartCoroutine(coroutine3);
+>>>>>>> remotes/origin/Igor
     }
 
     public void DoZeroSpriteFirstLineG()
@@ -520,6 +705,51 @@ public class MainMex : MonoBehaviour
         {
             yield return new WaitForSeconds(f);
             S9.transform.localScale = new Vector3(minimum, minimum, minimum);
+        }
+    }
+
+    public void CheckWin()
+    {
+        if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
+            six == 6 && seven == 7 && eight == 8 && nine == 9)
+        {
+            win = true;
+        }
+        PassingPoints();
+    }
+
+    public void PassingPoints()
+    {
+        points--;
+        Text.text = points.ToString();
+        StatusBar.GetComponent<RectTransform>().offsetMax = new Vector2(StatusBar.GetComponent<RectTransform>().offsetMax.x - piece, 0);
+        if (points == 0)
+        {
+            stars--;
+            GameObject.Find("Star").GetComponent<Image>().color = Color;
+            LastStar.GetComponent<Image>().color = Color;
+
+            Shadow.SetActive(true);
+            flag = 0;
+
+        }
+        else if (points == OneStar)
+        {
+            stars--;
+            GameObject.Find("Star3").GetComponent<Image>().color = Color;
+            LastStar3.GetComponent<Image>().color = Color;
+        }
+        else if (points == TwoStar)
+        {
+            stars--;
+            GameObject.Find("Star2").GetComponent<Image>().color = Color;
+            LastStar2.GetComponent<Image>().color = Color;
+        }
+        if (win)
+        {
+            TxtLvl.text = "Picture Complited";
+            Shadow.SetActive(true);
+            flag = 0;
         }
     }
 }
