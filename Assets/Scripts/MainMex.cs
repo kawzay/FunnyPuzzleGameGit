@@ -191,7 +191,8 @@ public class MainMex : MonoBehaviour
 
     }
 
-    public float minimum = 0f;
+    private float minimum = 0f;
+    private float maximum = 1f;
 
     private IEnumerator coroutine1;
     private IEnumerator coroutine2;
@@ -199,205 +200,205 @@ public class MainMex : MonoBehaviour
 
     public void MoveLeftFirstLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteFirstLineG();
+        DoZeroSpriteFirstLineG();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum1(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum2(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum3(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum1(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum2(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum3(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveRightFirstLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteFirstLineG();
+        DoZeroSpriteFirstLineG();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum3(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum2(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum1(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum3(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum2(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum1(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveLeftSecondLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteSecondLineG();
+        DoZeroSpriteSecondLineG();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum4(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum6(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum4(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum5(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum6(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveRightSecondLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteSecondLineG();
+        DoZeroSpriteSecondLineG();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum6(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum4(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum6(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum5(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum4(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveLeftThirdLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteThirdLineG();
+        DoZeroSpriteThirdLineG();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum7(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum8(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum9(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum7(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum8(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum9(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveRightTrirdLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteThirdLineG();
+        DoZeroSpriteThirdLineG();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum9(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum8(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum7(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum9(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum8(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum7(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveUpFirstLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteFirstLineV();
+        DoZeroSpriteFirstLineV();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum1(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum4(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum7(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum1(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum4(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum7(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveDownFirstLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteFirstLineV();
+        DoZeroSpriteFirstLineV();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum7(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum4(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum1(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum7(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum4(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum1(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveUpSecondLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteSecondLineV();
+        DoZeroSpriteSecondLineV();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum2(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum8(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum2(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum5(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum8(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveDownSecondLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteSecondLineV();
+        DoZeroSpriteSecondLineV();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum8(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum2(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum8(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum5(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum2(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void MoveUpTrirdLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteThirdLineV();
+        DoZeroSpriteThirdLineV();
 
         var q = S1.sprite;
         S1.sprite = S2.sprite;
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-        //coroutine1 = Enum3(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum6(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum9(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum3(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum6(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum9(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
     public void MoveDownThirdLine(Image S1, Image S2, Image S3)
     {
-        //DoZeroSpriteThirdLineV();
+        DoZeroSpriteThirdLineV();
 
         var g = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        //coroutine1 = Enum9(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum6(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum3(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
+        coroutine1 = Enum9(minimum, 0.008f);
+        StartCoroutine(coroutine1);
+        coroutine2 = Enum6(minimum, 0.010f);
+        StartCoroutine(coroutine2);
+        coroutine3 = Enum3(minimum, 0.012f);
+        StartCoroutine(coroutine3);
     }
 
     public void DoZeroSpriteFirstLineG()
@@ -445,7 +446,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum1(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S1.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -453,15 +454,15 @@ public class MainMex : MonoBehaviour
     }
     IEnumerator Enum2(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
-            S2.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S2.transform.localScale = new Vector3(minimum, minimum, minimum);    
         }
     }
     IEnumerator Enum3(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S3.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -470,7 +471,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum4(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S4.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -479,7 +480,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum5(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S5.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -488,7 +489,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum6(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S6.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -497,7 +498,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum7(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S7.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -506,7 +507,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum8(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S8.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -515,7 +516,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum9(float minimum, float f)
     {
-        for (minimum = 0f; minimum < 73.6f; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
         {
             yield return new WaitForSeconds(f);
             S9.transform.localScale = new Vector3(minimum, minimum, minimum);
