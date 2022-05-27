@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a1850ab9e7cfd184485a73a553065d9e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Jockey One
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a46a7616208a30d4bbef6e570e8cf95f, type: 3}
+  - {fileID: 12800000, guid: d0c79837ecb297d45809159bb7ea6c4b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
