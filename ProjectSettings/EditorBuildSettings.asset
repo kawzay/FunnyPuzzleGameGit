@@ -11,6 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/levels.unity
     guid: d3c4cee66703cca49a2125be84c08fd3
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/forestLevels.unity
     guid: b3e33806a3fd23445a731af759cc6700
@@ -23,4 +24,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/northPoleLevels.unity
     guid: c64c61a4dff28df4791daec9838de80d
+=======
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+>>>>>>> remotes/origin/main
   m_configObjects: {}
