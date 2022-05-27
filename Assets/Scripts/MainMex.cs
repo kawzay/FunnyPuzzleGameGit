@@ -2,9 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMex : MonoBehaviour
 {
+    public TextMeshProUGUI Text;
+    public TextMeshProUGUI MaxValue;
+    RectTransform transform;
+    public GameObject StatusBar;
+    public GameObject StatusBack;
+    public GameObject LastStar;
+    public GameObject LastStar2;
+    public GameObject LastStar3;
+    public GameObject Shadow;
+    public TextMeshProUGUI TxtLvl;
+    public int points;
+    public int OneStar;
+    public int TwoStar;
+    private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
+    private int stars = 3;
+    float piece;
+    int flag = 1;
+
+
     public Image S1;
     public Image S2;
     public Image S3;
@@ -15,10 +35,22 @@ public class MainMex : MonoBehaviour
     public Image S8;
     public Image S9;
 
+    private bool win = false;
+
+    public int one;
+    public int two;
+    public int three;
+    public int four;
+    public int five;
+    public int six;
+    public int seven;
+    public int eight;
+    public int nine;
+
     public delegate void OnSwipeInput(Vector2 dec);
     private Vector2 tapPos;
     private Vector2 swipeDelta;
-    private float deadZone = 60;
+    private readonly float deadZone = 60;
 
     private bool isSwiped;
     private bool isMobile;
@@ -27,7 +59,14 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(points);
         isMobile = Application.isMobilePlatform;
+        Shadow.SetActive(false);
+        Text.text = points.ToString();
+        //Text.GetComponent<Text>().text
+        MaxValue.text = points.ToString();
+        transform = StatusBack.GetComponent<RectTransform>();
+        piece = transform.sizeDelta.x / points;
     }
 
     // Update is called once per frame
@@ -188,7 +227,7 @@ public class MainMex : MonoBehaviour
         one = two;
         two = three;
         three = g;
-
+        CheckWin();
         //coroutine1 = Enum1(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum2(minimum, 0.010f);
@@ -206,10 +245,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        int g = three;
+        int q = three;
         three = two;
         two = one;
-        one = g;
+        one = q;
+        CheckWin();
         //coroutine1 = Enum3(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum2(minimum, 0.010f);
@@ -231,7 +271,7 @@ public class MainMex : MonoBehaviour
         four = five;
         five = six;
         six = g;
-
+        CheckWin();
         //coroutine1 = Enum4(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum5(minimum, 0.010f);
@@ -249,11 +289,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        int g = six;
+        int q = six;
         six = five;
         five = four;
-        four = g;
-
+        four = q;
+        CheckWin();
         //coroutine1 = Enum6(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum5(minimum, 0.010f);
@@ -275,6 +315,7 @@ public class MainMex : MonoBehaviour
         seven = eight;
         eight = nine;
         nine = g;
+        CheckWin();
         //coroutine1 = Enum7(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum8(minimum, 0.010f);
@@ -292,10 +333,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-        int g = nine;
+        int q = nine;
         nine = eight;
         eight = seven;
-        seven = g;
+        seven = q;
+        CheckWin();
         //coroutine1 = Enum9(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum8(minimum, 0.010f);
@@ -313,6 +355,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+        int g = one;
+        one = four;
+        four = seven;
+        seven = g;
+        CheckWin();
         //coroutine1 = Enum1(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum4(minimum, 0.010f);
@@ -325,11 +372,16 @@ public class MainMex : MonoBehaviour
     {
         //DoZeroSpriteFirstLineV();
 
-        var g = S3.sprite;
+        var q = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
-        S1.sprite = g;
+        S1.sprite = q;
 
+        int g = seven;
+        seven = four;
+        four = one;
+        one = g;
+        CheckWin();
         //coroutine1 = Enum7(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum4(minimum, 0.010f);
@@ -347,6 +399,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+        int g = two;
+        two = five;
+        five = eight;
+        eight = g;
+        CheckWin();
         //coroutine1 = Enum2(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum5(minimum, 0.010f);
@@ -364,6 +421,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
+        int q = eight;
+        eight = five;
+        five = two;
+        two = q;
+        CheckWin();
         //coroutine1 = Enum8(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum5(minimum, 0.010f);
@@ -381,6 +443,11 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
+        int g = three;
+        three = six;
+        six = nine;
+        nine = g;
+        CheckWin();
         //coroutine1 = Enum3(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum6(minimum, 0.010f);
@@ -392,11 +459,16 @@ public class MainMex : MonoBehaviour
     {
         //DoZeroSpriteThirdLineV();
 
-        var g = S3.sprite;
+        var q = S3.sprite;
         S3.sprite = S2.sprite;
         S2.sprite = S1.sprite;
-        S1.sprite = g;
+        S1.sprite = q;
 
+        int g = nine;
+        nine = six;
+        six = three;
+        three = g;
+        CheckWin();
         //coroutine1 = Enum9(minimum, 0.008f);
         //StartCoroutine(coroutine1);
         //coroutine2 = Enum6(minimum, 0.010f);
@@ -524,6 +596,51 @@ public class MainMex : MonoBehaviour
         {
             yield return new WaitForSeconds(f);
             S9.transform.localScale = new Vector3(minimum, minimum, minimum);
+        }
+    }
+
+    public void CheckWin()
+    {
+        if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
+            six == 6 && seven == 7 && eight == 8 && nine == 9)
+        {
+            win = true;
+        }
+        PassingPoints();
+    }
+
+    public void PassingPoints()
+    {
+        points--;
+        Text.text = points.ToString();
+        StatusBar.GetComponent<RectTransform>().offsetMax = new Vector2(StatusBar.GetComponent<RectTransform>().offsetMax.x - piece, 0);
+        if (points == 0)
+        {
+            stars--;
+            GameObject.Find("Star").GetComponent<Image>().color = Color;
+            LastStar.GetComponent<Image>().color = Color;
+
+            Shadow.SetActive(true);
+            flag = 0;
+
+        }
+        else if (points == OneStar)
+        {
+            stars--;
+            GameObject.Find("Star3").GetComponent<Image>().color = Color;
+            LastStar3.GetComponent<Image>().color = Color;
+        }
+        else if (points == TwoStar)
+        {
+            stars--;
+            GameObject.Find("Star2").GetComponent<Image>().color = Color;
+            LastStar2.GetComponent<Image>().color = Color;
+        }
+        if (win)
+        {
+            TxtLvl.text = "Picture Complited";
+            Shadow.SetActive(true);
+            flag = 0;
         }
     }
 }
