@@ -471,7 +471,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum4(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S4.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -480,7 +480,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum5(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S5.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -489,7 +489,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum6(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S6.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -498,7 +498,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum7(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S7.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -507,7 +507,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum8(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S8.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -516,7 +516,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum9(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S9.transform.localScale = new Vector3(minimum, minimum, minimum);
