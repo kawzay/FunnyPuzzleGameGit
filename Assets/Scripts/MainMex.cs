@@ -63,7 +63,6 @@ public class MainMex : MonoBehaviour
         isMobile = Application.isMobilePlatform;
         Shadow.SetActive(false);
         Text.text = points.ToString();
-        //Text.GetComponent<Text>().text
         MaxValue.text = points.ToString();
         transform = StatusBack.GetComponent<RectTransform>();
         piece = transform.sizeDelta.x / points;
@@ -103,99 +102,102 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
-        var high = Screen.height;
-        var widt = Screen.width;
-
-        var firHigh = high / 1.854;
-        var secHigh = high / 2.537;
-        var thiHigh = high / 4.08;
-
-        var firWidt = widt / 4.3125;
-        var secWidt = widt / 2;
-        var thiWidt = widt / 1.32;
-
-        swipeDelta = Vector2.zero;
-
-
-        if (isSwiped)
+        if (flag != 0)
         {
-            if (!isMobile && Input.GetMouseButton(0))
-            {
-                swipeDelta = (Vector2)Input.mousePosition - tapPos;
-            }
-            else if (Input.touchCount > 0)
-                swipeDelta = Input.GetTouch(0).position - tapPos;
-        }
+            var high = Screen.height;
+            var widt = Screen.width;
 
-        if (swipeDelta.magnitude > deadZone)
-        {
-            if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
+            var firHigh = high / 1.854;
+            var secHigh = high / 2.537;
+            var thiHigh = high / 4.08;
+
+            var firWidt = widt / 4.3125;
+            var secWidt = widt / 2;
+            var thiWidt = widt / 1.32;
+
+            swipeDelta = Vector2.zero;
+
+
+            if (isSwiped)
             {
-                if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                if (!isMobile && Input.GetMouseButton(0))
                 {
-                    if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
+                    swipeDelta = (Vector2)Input.mousePosition - tapPos;
+                }
+                else if (Input.touchCount > 0)
+                    swipeDelta = Input.GetTouch(0).position - tapPos;
+            }
+
+            if (swipeDelta.magnitude > deadZone)
+            {
+                if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
+                {
+                    if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
                     {
-                        if (swipeDelta.x > 0)
+                        if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
                         {
-                            MoveRightFirstLine(S1, S2, S3);
+                            if (swipeDelta.x > 0)
+                            {
+                                MoveRightFirstLine(S1, S2, S3);
+                            }
+                            else
+                            {
+                                MoveLeftFirstLine(S1, S2, S3);
+                            }
                         }
-                        else
+                        else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
                         {
-                            MoveLeftFirstLine(S1, S2, S3);
+                            if (swipeDelta.x > 0)
+                            {
+                                MoveRightSecondLine(S4, S5, S6);
+                            }
+                            else
+                            {
+                                MoveLeftSecondLine(S4, S5, S6);
+                            }
                         }
-                    }
-                    else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
-                    {
-                        if (swipeDelta.x > 0)
+                        else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
                         {
-                            MoveRightSecondLine(S4, S5, S6);
-                        }
-                        else
-                        {
-                            MoveLeftSecondLine(S4, S5, S6);
-                        }
-                    }
-                    else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
-                    {
-                        if (swipeDelta.x > 0)
-                        {
-                            MoveRightTrirdLine(S7, S8, S9);
-                        }
-                        else
-                        {
-                            MoveLeftThirdLine(S7, S8, S9);
+                            if (swipeDelta.x > 0)
+                            {
+                                MoveRightTrirdLine(S7, S8, S9);
+                            }
+                            else
+                            {
+                                MoveLeftThirdLine(S7, S8, S9);
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                if (tapPos.y < firHigh + (firHigh - firHigh * 0.879) && tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh))
+                else
                 {
-                    if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                    if (tapPos.y < firHigh + (firHigh - firHigh * 0.879) && tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh))
                     {
-                        if (swipeDelta.y > 0)
-                            MoveUpFirstLine(S1, S4, S7);
-                        else
-                            MoveDownFirstLine(S1, S4, S7);
-                    }
-                    if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
-                    {
-                        if (swipeDelta.y > 0)
-                            MoveUpSecondLine(S2, S5, S8);
-                        else
-                            MoveDownSecondLine(S2, S5, S8);
-                    }
-                    if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
-                    {
-                        if (swipeDelta.y > 0)
-                            MoveUpTrirdLine(S3, S6, S9);
-                        else
-                            MoveDownThirdLine(S3, S6, S9);
+                        if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                        {
+                            if (swipeDelta.y > 0)
+                                MoveUpFirstLine(S1, S4, S7);
+                            else
+                                MoveDownFirstLine(S1, S4, S7);
+                        }
+                        if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
+                        {
+                            if (swipeDelta.y > 0)
+                                MoveUpSecondLine(S2, S5, S8);
+                            else
+                                MoveDownSecondLine(S2, S5, S8);
+                        }
+                        if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                        {
+                            if (swipeDelta.y > 0)
+                                MoveUpTrirdLine(S3, S6, S9);
+                            else
+                                MoveDownThirdLine(S3, S6, S9);
+                        }
                     }
                 }
+                ResetSwipe();
             }
-            ResetSwipe();
         }
 
     }
@@ -214,7 +216,6 @@ public class MainMex : MonoBehaviour
     private IEnumerator coroutine1;
     private IEnumerator coroutine2;
     private IEnumerator coroutine3;
-
     public void MoveLeftFirstLine(Image S1, Image S2, Image S3)
     {
         DoZeroSpriteFirstLineG();
@@ -224,26 +225,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = one;
         one = two;
         two = three;
         three = g;
         CheckWin();
-        //coroutine1 = Enum1(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum2(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum3(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum1(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum2(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum3(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveRightFirstLine(Image S1, Image S2, Image S3)
@@ -255,26 +247,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-<<<<<<< HEAD
         int q = three;
         three = two;
         two = one;
         one = q;
         CheckWin();
-        //coroutine1 = Enum3(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum2(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum1(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum3(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum2(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum1(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveLeftSecondLine(Image S1, Image S2, Image S3)
@@ -286,26 +269,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = four;
         four = five;
         five = six;
         six = g;
         CheckWin();
-        //coroutine1 = Enum4(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum6(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum4(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum6(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveRightSecondLine(Image S1, Image S2, Image S3)
@@ -317,26 +291,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-<<<<<<< HEAD
         int q = six;
         six = five;
         five = four;
         four = q;
         CheckWin();
-        //coroutine1 = Enum6(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum4(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum6(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum4(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveLeftThirdLine(Image S1, Image S2, Image S3)
@@ -348,26 +313,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = seven;
         seven = eight;
         eight = nine;
         nine = g;
         CheckWin();
-        //coroutine1 = Enum7(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum8(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum9(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum7(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum8(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum9(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveRightTrirdLine(Image S1, Image S2, Image S3)
@@ -379,26 +335,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-<<<<<<< HEAD
         int q = nine;
         nine = eight;
         eight = seven;
         seven = q;
         CheckWin();
-        //coroutine1 = Enum9(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum8(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum7(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum9(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum8(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum7(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveUpFirstLine(Image S1, Image S2, Image S3)
@@ -410,26 +357,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = one;
         one = four;
         four = seven;
         seven = g;
         CheckWin();
-        //coroutine1 = Enum1(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum4(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum7(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum1(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum4(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum7(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveDownFirstLine(Image S1, Image S2, Image S3)
@@ -441,26 +379,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = q;
 
-<<<<<<< HEAD
         int g = seven;
         seven = four;
         four = one;
         one = g;
         CheckWin();
-        //coroutine1 = Enum7(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum4(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum1(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum7(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum4(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum1(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveUpSecondLine(Image S1, Image S2, Image S3)
@@ -472,26 +401,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = two;
         two = five;
         five = eight;
         eight = g;
         CheckWin();
-        //coroutine1 = Enum2(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum8(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum2(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum8(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveDownSecondLine(Image S1, Image S2, Image S3)
@@ -503,26 +423,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = g;
 
-<<<<<<< HEAD
         int q = eight;
         eight = five;
         five = two;
         two = q;
         CheckWin();
-        //coroutine1 = Enum8(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum5(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum2(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum8(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum5(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum2(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void MoveUpTrirdLine(Image S1, Image S2, Image S3)
@@ -534,26 +445,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S3.sprite;
         S3.sprite = q;
 
-<<<<<<< HEAD
         int g = three;
         three = six;
         six = nine;
         nine = g;
         CheckWin();
-        //coroutine1 = Enum3(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum6(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum9(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum3(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum6(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum9(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
     public void MoveDownThirdLine(Image S1, Image S2, Image S3)
     {
@@ -564,26 +466,17 @@ public class MainMex : MonoBehaviour
         S2.sprite = S1.sprite;
         S1.sprite = q;
 
-<<<<<<< HEAD
         int g = nine;
         nine = six;
         six = three;
         three = g;
         CheckWin();
-        //coroutine1 = Enum9(minimum, 0.008f);
-        //StartCoroutine(coroutine1);
-        //coroutine2 = Enum6(minimum, 0.010f);
-        //StartCoroutine(coroutine2);
-        //coroutine3 = Enum3(minimum, 0.012f);
-        //StartCoroutine(coroutine3);
-=======
         coroutine1 = Enum9(minimum, 0.008f);
         StartCoroutine(coroutine1);
         coroutine2 = Enum6(minimum, 0.010f);
         StartCoroutine(coroutine2);
         coroutine3 = Enum3(minimum, 0.012f);
         StartCoroutine(coroutine3);
->>>>>>> remotes/origin/dmitry
     }
 
     public void DoZeroSpriteFirstLineG()
@@ -642,7 +535,7 @@ public class MainMex : MonoBehaviour
         for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
-            S2.transform.localScale = new Vector3(minimum, minimum, minimum);    
+            S2.transform.localScale = new Vector3(minimum, minimum, minimum);
         }
     }
     IEnumerator Enum3(float minimum, float f)
@@ -656,7 +549,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum4(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S4.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -665,7 +558,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum5(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S5.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -674,7 +567,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum6(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S6.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -683,7 +576,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum7(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S7.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -692,7 +585,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum8(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S8.transform.localScale = new Vector3(minimum, minimum, minimum);
@@ -701,7 +594,7 @@ public class MainMex : MonoBehaviour
 
     IEnumerator Enum9(float minimum, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 3.2f)
+        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
         {
             yield return new WaitForSeconds(f);
             S9.transform.localScale = new Vector3(minimum, minimum, minimum);
