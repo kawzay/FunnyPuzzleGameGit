@@ -6,6 +6,10 @@ using TMPro;
 
 public class MainMex : MonoBehaviour
 {
+    public GameObject Play;
+    public GameObject CircleLeft;
+    public GameObject CircleRight;
+    public GameObject Home;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI MaxValue;
     RectTransform transform;
@@ -621,7 +625,8 @@ public class MainMex : MonoBehaviour
             stars--;
             GameObject.Find("Star").GetComponent<Image>().color = Color;
             LastStar.GetComponent<Image>().color = Color;
-
+            CircleLeft.SetActive(false);
+            Play.SetActive(false);
             Shadow.SetActive(true);
             flag = 0;
 
@@ -641,6 +646,16 @@ public class MainMex : MonoBehaviour
         if (win)
         {
             TxtLvl.text = "Picture Complited";
+            if (stars == 3)
+            {
+                CircleRight.SetActive(false);
+                CircleLeft.SetActive(false);
+            }
+            if (stars == 2 || stars == 1)
+            {
+                Home.SetActive(false);
+                CircleRight.SetActive(false);
+            }
             Shadow.SetActive(true);
             flag = 0;
         }
