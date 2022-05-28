@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 32499768}
   - component: {fileID: 32499767}
   m_Layer: 0
-  m_Name: StarCollect
+  m_Name: PlusStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2361,7 +2361,7 @@ GameObject:
   - component: {fileID: 1162707103}
   - component: {fileID: 1162707102}
   m_Layer: 0
-  m_Name: StarCollect
+  m_Name: TotalStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2632,6 +2632,7 @@ MonoBehaviour:
   S7: {fileID: 459474012}
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
+  Lvl: 0
   one: 4
   two: 2
   three: 3
@@ -4498,7 +4499,7 @@ GameObject:
   - component: {fileID: 2135409843}
   - component: {fileID: 2135409842}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TotalStar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

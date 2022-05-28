@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 32499768}
   - component: {fileID: 32499767}
   m_Layer: 0
-  m_Name: StarCollect
+  m_Name: PlusStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2361,7 +2361,7 @@ GameObject:
   - component: {fileID: 1162707103}
   - component: {fileID: 1162707102}
   m_Layer: 0
-  m_Name: StarCollect
+  m_Name: TotalStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2631,6 +2631,7 @@ MonoBehaviour:
   S7: {fileID: 459474012}
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
+  Lvl: 0
   one: 4
   two: 2
   three: 3
@@ -4421,7 +4422,7 @@ GameObject:
   - component: {fileID: 2135409843}
   - component: {fileID: 2135409842}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TotalStar2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4444,8 +4445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.5, y: -31.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 34.499996, y: -31.8}
+  m_SizeDelta: {x: 55.32, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2135409842
 MonoBehaviour:
