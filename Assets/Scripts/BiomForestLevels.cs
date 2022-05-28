@@ -18,7 +18,6 @@ public class BiomForestLevels : MonoBehaviour
     void Start()
     {
         levelComplete = PlayerPrefs.GetInt("LevelComplete");
-        levelComplete = 2;
         lvl2.interactable = false;
         lvl3.interactable = false;
         lvl4.interactable = false;
