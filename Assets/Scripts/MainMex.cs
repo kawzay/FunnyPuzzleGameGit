@@ -29,7 +29,7 @@ public class MainMex : MonoBehaviour
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    public static int flag = 1;
+    //public static int flag = 1;
 
 
     public Image S1;
@@ -112,8 +112,6 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
-        if (flag != 0)
-        {
             var high = Screen.height;
             var widt = Screen.width;
 
@@ -208,7 +206,6 @@ public class MainMex : MonoBehaviour
                 }
                 ResetSwipe();
             }
-        }
 
     }
 
@@ -638,7 +635,6 @@ public class MainMex : MonoBehaviour
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
-            flag = 0;
 
         }
         else if (points == OneStar)
@@ -670,7 +666,6 @@ public class MainMex : MonoBehaviour
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
-            flag = 0;
         }
     }
 }
