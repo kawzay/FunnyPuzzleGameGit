@@ -10,6 +10,9 @@ public class MainMex : MonoBehaviour
     public GameObject CircleLeft;
     public GameObject CircleRight;
     public GameObject Home;
+    public TextMeshProUGUI TotalStar;
+    public TextMeshProUGUI TotalStar2;
+    public TextMeshProUGUI PlusStar;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI MaxValue;
     RectTransform transform;
@@ -64,6 +67,7 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
         isMobile = Application.isMobilePlatform;
         Shadow.SetActive(false);
@@ -658,6 +662,9 @@ public class MainMex : MonoBehaviour
                 Home.SetActive(false);
                 CircleRight.SetActive(false);
             }
+            PlusStar.text = GetStars.StarChanger(Lvl, stars);
+            TotalStar.text = GetStars.GetTotal();
+            TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
             flag = 0;
         }
