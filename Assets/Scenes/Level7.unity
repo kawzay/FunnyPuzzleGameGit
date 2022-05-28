@@ -3982,9 +3982,9 @@ MonoBehaviour:
   LastStar3: {fileID: 478768050}
   Shadow: {fileID: 1386552517}
   TxtLvl: {fileID: 1323525175}
-  points: 8
-  OneStar: 5
-  TwoStar: 3
+  points: 4
+  OneStar: 2
+  TwoStar: 1
   S1: {fileID: 984841660}
   S2: {fileID: 2097200742}
   S3: {fileID: 937533957}
@@ -3994,7 +3994,7 @@ MonoBehaviour:
   S7: {fileID: 459474012}
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
-  Lvl: 5
+  Lvl: 7
   one: 4
   two: 2
   three: 6

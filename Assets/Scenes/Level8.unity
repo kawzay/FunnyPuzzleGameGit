@@ -4070,7 +4070,7 @@ MonoBehaviour:
   S7: {fileID: 459474012}
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
-  Lvl: 5
+  Lvl: 8
   one: 2
   two: 3
   three: 1
@@ -4637,7 +4637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1386552518
 RectTransform:
   m_ObjectHideFlags: 0
