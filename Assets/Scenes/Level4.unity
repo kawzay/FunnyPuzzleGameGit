@@ -2610,6 +2610,9 @@ MonoBehaviour:
   CircleLeft: {fileID: 958106115}
   CircleRight: {fileID: 1484418393}
   Home: {fileID: 1560173394}
+  TotalStar: {fileID: 0}
+  TotalStar2: {fileID: 0}
+  PlusStar: {fileID: 0}
   Text: {fileID: 1011479603}
   MaxValue: {fileID: 751512201}
   StatusBar: {fileID: 1296506915}
@@ -2631,7 +2634,7 @@ MonoBehaviour:
   S7: {fileID: 459474012}
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
-  Lvl: 0
+  Lvl: 4
   one: 4
   two: 2
   three: 3
