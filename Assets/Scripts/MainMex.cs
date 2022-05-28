@@ -29,7 +29,7 @@ public class MainMex : MonoBehaviour
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    int flag = 1;
+    public static int flag = 1;
 
 
     public Image S1;
@@ -67,6 +67,7 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
         isMobile = Application.isMobilePlatform;
