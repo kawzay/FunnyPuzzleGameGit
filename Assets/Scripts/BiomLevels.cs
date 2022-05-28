@@ -10,9 +10,12 @@ public class BiomLevels : MonoBehaviour
     public Button lvl2;
     public Button lvl3;
     public Button lvl4;
+    public int startIndex;
     public Sprite unlock;
     public Sprite resolvedLevel1;
     public Sprite resolvedLevel2;
+    public Sprite resolvedLevel3;
+    public Sprite resolvedLevel4;
     int levelComplete;
     bool isCompleted = false;
 
@@ -40,7 +43,7 @@ public class BiomLevels : MonoBehaviour
             lvl4.image.color = cc;
         }
 
-        if (levelComplete == 1)
+        if (levelComplete == 1 + startIndex)
         {
             lvl2.interactable = true;
 
@@ -51,7 +54,7 @@ public class BiomLevels : MonoBehaviour
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = unlock;
         }
-        if (levelComplete == 2)
+        if (levelComplete == 2 + startIndex)
         {
             lvl2.interactable = true;
             lvl3.interactable = true;
@@ -68,7 +71,7 @@ public class BiomLevels : MonoBehaviour
             lvl2.image.sprite = resolvedLevel2;
             lvl3.image.sprite = unlock;
         }
-        if (levelComplete == 3)
+        if (levelComplete == 3 + startIndex)
         {
             lvl2.interactable = true;
             lvl3.interactable = true;
@@ -88,10 +91,10 @@ public class BiomLevels : MonoBehaviour
 
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = resolvedLevel1;
+            lvl3.image.sprite = resolvedLevel3;
             lvl4.image.sprite = unlock;
         }
-        if (levelComplete >= 4)
+        if (levelComplete >= 4 + startIndex)
         {
             isCompleted = true;
             lvl2.interactable = true;
@@ -112,8 +115,8 @@ public class BiomLevels : MonoBehaviour
 
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = resolvedLevel1;
-            lvl4.image.sprite = resolvedLevel1;
+            lvl3.image.sprite = resolvedLevel3;
+            lvl4.image.sprite = resolvedLevel4;
         }
     }
 
