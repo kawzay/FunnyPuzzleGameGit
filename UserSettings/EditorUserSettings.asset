@@ -6,7 +6,6 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-<<<<<<< HEAD
       value: 5457045754515c0a5c585a7a43265b44474e1b282d7d716028794f6abab1313e
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -19,49 +18,19 @@ EditorUserSettings:
       value: 07030000520d085a5a57097012705d44401541782e7e7436752b4532b7e66d69
       flags: 0
     RecentlyUsedSceneGuid-4:
-      value: 0657070401575c030e5b5b2614250e4415161a2c7a7d25612c7f1864bab03660
+      value: 01025155560d590d0c5d0a2642700b4443164f797d29206778701e30b4b76468
       flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 570804035c56080e5b5b597448700f444f151b7f297e24687c284d61e4b46d6f
-      flags: 0
-    RecentlyUsedSceneGuid-6:
-      value: 000700055304080f09080a7048275944414e492e2d2d2569757a4537e7b8643c
-      flags: 0
-    RecentlyUsedSceneGuid-7:
       value: 0702575206500c0d5b595c7113205e444f164a7b7e7d2435757d1e63bae6306b
       flags: 0
-    RecentlyUsedSceneGuid-8:
-      value: 01025155560d590d0c5d0a2642700b4443164f797d29206778701e30b4b76468
-=======
-      value: 02095505510c580b0f595e2142700f44101548287f7e77627a7a4436b5b53261
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 0201070454015e595a0c587516275e444e4e4a73297c7e33292a1f6bb7b5326f
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5354070704020a5e5f595b74492608444f1540282f2973352f284861e6b9363d
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 5a5352070404510f595a5a7647220944154e4879787f20687b2b4f37b4b7603a
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 0503010001040d03585b5a20147007444e4f4c7f7d717762747f1f6ae1b1673b
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 570704515c54510954595d2344270f44414f4a297b7a73347f784935e4b8363b
-      flags: 0
     RecentlyUsedSceneGuid-6:
-      value: 0207565004515e03555f097045720e44144e19797a2d7f69742a4932e6b2323b
+      value: 0657070401575c030e5b5b2614250e4415161a2c7a7d25612c7f1864bab03660
       flags: 0
     RecentlyUsedSceneGuid-7:
-      value: 505701545c015d0d0f0a597712275b444316417d7a7b76667a7c4e30b0b26c6a
+      value: 570804035c56080e5b5b597448700f444f151b7f297e24687c284d61e4b46d6f
       flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 5052070251540f0e54570f71437a0b44414e49787d7077647f7e4561b0b0306a
-      flags: 0
-    RecentlyUsedSceneGuid-9:
-      value: 5408065757015a580e0a0f2745720c444f154d2f2a2b73682e7f4c67b0b9606f
->>>>>>> remotes/origin/main
+      value: 000700055304080f09080a7048275944414e492e2d2d2569757a4537e7b8643c
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 510506550001500f580c5c7414275944154f48727f7022602b704c30e1b3306c
