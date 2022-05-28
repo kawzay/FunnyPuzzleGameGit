@@ -3926,6 +3926,7 @@ GameObject:
   - component: {fileID: 1200110252}
   - component: {fileID: 1200110251}
   - component: {fileID: 1200110255}
+  - component: {fileID: 1200110256}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4071,6 +4072,56 @@ MonoBehaviour:
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
   Lvl: 8
+  one: 2
+  two: 3
+  three: 1
+  four: 4
+  five: 5
+  six: 6
+  seven: 8
+  eight: 9
+  nine: 7
+--- !u!114 &1200110256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200110250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796cbbb0dbf636f4189d99c342245635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Play: {fileID: 744390512}
+  CircleLeft: {fileID: 958106115}
+  CircleRight: {fileID: 1484418393}
+  Home: {fileID: 1560173394}
+  TotalStar: {fileID: 1162707102}
+  TotalStar2: {fileID: 2135409842}
+  PlusStar: {fileID: 32499767}
+  Text: {fileID: 1011479603}
+  MaxValue: {fileID: 751512201}
+  StatusBar: {fileID: 1296506915}
+  StatusBack: {fileID: 696306595}
+  LastStar: {fileID: 1554806222}
+  LastStar2: {fileID: 725311239}
+  LastStar3: {fileID: 478768050}
+  Shadow: {fileID: 1386552517}
+  TxtLvl: {fileID: 1323525175}
+  points: 4
+  OneStar: 2
+  TwoStar: 1
+  S1: {fileID: 984841660}
+  S2: {fileID: 2097200742}
+  S3: {fileID: 937533957}
+  S4: {fileID: 874723606}
+  S5: {fileID: 1379051717}
+  S6: {fileID: 1545785647}
+  S7: {fileID: 459474012}
+  S8: {fileID: 1666233598}
+  S9: {fileID: 2097044489}
+  Lvl: 5
   one: 2
   two: 3
   three: 1
