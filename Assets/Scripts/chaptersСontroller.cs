@@ -14,7 +14,6 @@ public class chapters—ontroller : MonoBehaviour
     void Start()
     {
         var totalStars = int.Parse(GetStars.GetTotal());
-        Debug.Log(totalStars);
         chp2.interactable = false;
         chp3.interactable = false;
         chp4.interactable = false;
@@ -23,8 +22,8 @@ public class chapters—ontroller : MonoBehaviour
         //chp2.GetComponentInChildren<Text>().text = "9";
         //chp3.GetComponentInChildren<Text>().text = "20";
         //chp4.GetComponentInChildren<Text>().text = "30";
+        //chp3.GetComponentInChildren<Text>().text = "ÕÓ‚˚È ÚÂÍÒÚ";
 
-        
         if (totalStars > 2)
         {
             chp2.interactable = true;

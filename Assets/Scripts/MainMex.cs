@@ -615,7 +615,7 @@ public class MainMex : MonoBehaviour
         if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
             six == 6 && seven == 7 && eight == 8 && nine == 9)
         {
-            PlayerPrefs.SetInt("LevelComplete", Lvl % 4); // Код для подсчета уровней
+            PlayerPrefs.SetInt("LevelComplete", Lvl); // Код для подсчета уровней
             win = true;
         }
         PassingPoints();
