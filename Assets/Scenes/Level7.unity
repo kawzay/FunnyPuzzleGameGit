@@ -2195,7 +2195,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2855,7 +2855,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3937,7 +3937,6 @@ RectTransform:
   - {fileID: 1287032768}
   - {fileID: 1120648651}
   - {fileID: 696306596}
-  - {fileID: 1386552518}
   - {fileID: 1799714065}
   - {fileID: 436679709}
   - {fileID: 600516126}
@@ -3946,6 +3945,7 @@ RectTransform:
   - {fileID: 1031708805}
   - {fileID: 1009554327}
   - {fileID: 890027478}
+  - {fileID: 1386552518}
   m_Father: {fileID: 1540085375}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3963,7 +3963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200110250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce752d12c3cac44ab1095e69242e469, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b52e2ce855cbbf4d9f0178e1eae23e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Play: {fileID: 744390512}
@@ -4561,7 +4561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1386552518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4751,7 +4751,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

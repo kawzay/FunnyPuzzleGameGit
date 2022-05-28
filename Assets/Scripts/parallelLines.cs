@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainMex : MonoBehaviour
+public class parallelLines : MonoBehaviour
 {
     public GameObject Play;
     public GameObject CircleLeft;
@@ -29,7 +29,7 @@ public class MainMex : MonoBehaviour
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    //public static int flag = 1;
+    public static int flag = 1;
 
 
     public Image S1;
@@ -67,7 +67,7 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
         isMobile = Application.isMobilePlatform;
@@ -112,6 +112,8 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
+        if (flag != 0)
+        {
             var high = Screen.height;
             var widt = Screen.width;
 
@@ -184,9 +186,16 @@ public class MainMex : MonoBehaviour
                         if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
                         {
                             if (swipeDelta.y > 0)
+                            {
                                 MoveUpFirstLine(S1, S4, S7);
+                                MoveUpFirstLine(S3, S6, S9);
+                            }
                             else
+                            {
                                 MoveDownFirstLine(S1, S4, S7);
+                                MoveDownFirstLine(S3, S6, S9);
+                            }
+                                
                         }
                         if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
                         {
@@ -198,14 +207,22 @@ public class MainMex : MonoBehaviour
                         if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
                         {
                             if (swipeDelta.y > 0)
+                            {
+                                MoveUpTrirdLine(S1, S4, S7);
                                 MoveUpTrirdLine(S3, S6, S9);
+                            }
                             else
+                            {
+                                MoveDownThirdLine(S1, S4, S7);
                                 MoveDownThirdLine(S3, S6, S9);
+                            }
+                                
                         }
                     }
                 }
                 ResetSwipe();
             }
+        }
 
     }
 
@@ -635,6 +652,7 @@ public class MainMex : MonoBehaviour
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
+            flag = 0;
 
         }
         else if (points == OneStar)
@@ -666,6 +684,7 @@ public class MainMex : MonoBehaviour
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
+            flag = 0;
         }
     }
 }
