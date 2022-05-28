@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class DrowStars : MonoBehaviour
 {
-    public static int first;
-    public static int sec;
-    public static int thir;
-    public static int four;
+    public  int first;
+    public  int sec;
+    public  int thir;
+    public  int four;
 
-    public static GameObject Z11;
-    public static GameObject Z12;
-    public static GameObject Z13;
-    public static GameObject Z21;
-    public static GameObject Z22;
-    public static GameObject Z23;
-    public static GameObject Z31;
-    public static GameObject Z32;
-    public static GameObject Z33;
-    public static GameObject Z41;
-    public static GameObject Z42;
-    public static GameObject Z43;
+    public  GameObject Z11;
+    public  GameObject Z12;
+    public  GameObject Z13;
+    public  GameObject Z21;
+    public  GameObject Z22;
+    public  GameObject Z23;
+    public  GameObject Z31;
+    public  GameObject Z32;
+    public  GameObject Z33;
+    public  GameObject Z41;
+    public  GameObject Z42;
+    public  GameObject Z43;
     private static Vector4 Color = new Vector4(255 / 255.0f, 255 / 255.0f, 255 / 255.0f, 1);
 
     private void Start()
@@ -40,10 +40,8 @@ public class DrowStars : MonoBehaviour
         Z43.SetActive(false);
 
     }
-    public static void DrawStars(int lvl)
+    void Update()
     {
-        if(lvl == first)
-        {
             if(first == 1)
             {
                 var q = GetStars.St1;
@@ -124,9 +122,6 @@ public class DrowStars : MonoBehaviour
                     Z13.GetComponent<Image>().color = Color;
                 }
             }
-        }
-        if (lvl == sec)
-        {
             if (first == 2)
             {
                 var q = GetStars.St2;
@@ -137,8 +132,8 @@ public class DrowStars : MonoBehaviour
                     Z21.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z21.GetComponent<Image>().color = Color;
                     Z22.GetComponent<Image>().color = Color;
-                    Z23.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -157,8 +152,8 @@ public class DrowStars : MonoBehaviour
                     Z21.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z21.GetComponent<Image>().color = Color;
                     Z22.GetComponent<Image>().color = Color;
-                    Z23.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -177,8 +172,8 @@ public class DrowStars : MonoBehaviour
                     Z21.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z21.GetComponent<Image>().color = Color;
                     Z22.GetComponent<Image>().color = Color;
-                    Z23.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -197,8 +192,8 @@ public class DrowStars : MonoBehaviour
                     Z21.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z21.GetComponent<Image>().color = Color;
                     Z22.GetComponent<Image>().color = Color;
-                    Z23.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -207,9 +202,6 @@ public class DrowStars : MonoBehaviour
                     Z23.GetComponent<Image>().color = Color;
                 }
             }
-        }
-        if (lvl == thir)
-        {
             if (first == 3)
             {
                 var q = GetStars.St3;
@@ -220,8 +212,8 @@ public class DrowStars : MonoBehaviour
                     Z31.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z31.GetComponent<Image>().color = Color;
                     Z32.GetComponent<Image>().color = Color;
-                    Z33.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -240,8 +232,8 @@ public class DrowStars : MonoBehaviour
                     Z31.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z31.GetComponent<Image>().color = Color;
                     Z32.GetComponent<Image>().color = Color;
-                    Z33.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -260,8 +252,8 @@ public class DrowStars : MonoBehaviour
                     Z31.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z31.GetComponent<Image>().color = Color;
                     Z32.GetComponent<Image>().color = Color;
-                    Z33.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -280,8 +272,8 @@ public class DrowStars : MonoBehaviour
                     Z31.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z31.GetComponent<Image>().color = Color;
                     Z32.GetComponent<Image>().color = Color;
-                    Z33.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -290,9 +282,6 @@ public class DrowStars : MonoBehaviour
                     Z33.GetComponent<Image>().color = Color;
                 }
             }
-        }
-        if (lvl == four)
-        {
             if (first == 4)
             {
                 var q = GetStars.St4;
@@ -303,8 +292,8 @@ public class DrowStars : MonoBehaviour
                     Z41.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z41.GetComponent<Image>().color = Color;
                     Z42.GetComponent<Image>().color = Color;
-                    Z43.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -323,8 +312,8 @@ public class DrowStars : MonoBehaviour
                     Z41.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z41.GetComponent<Image>().color = Color;
                     Z42.GetComponent<Image>().color = Color;
-                    Z43.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -343,8 +332,8 @@ public class DrowStars : MonoBehaviour
                     Z41.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z41.GetComponent<Image>().color = Color;
                     Z42.GetComponent<Image>().color = Color;
-                    Z43.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -363,8 +352,8 @@ public class DrowStars : MonoBehaviour
                     Z41.GetComponent<Image>().color = Color;
                 if (q == 2)
                 {
+                    Z41.GetComponent<Image>().color = Color;
                     Z42.GetComponent<Image>().color = Color;
-                    Z43.GetComponent<Image>().color = Color;
                 }
                 if (q == 3)
                 {
@@ -373,6 +362,5 @@ public class DrowStars : MonoBehaviour
                     Z43.GetComponent<Image>().color = Color;
                 }
             }
-        }
     }
 }
