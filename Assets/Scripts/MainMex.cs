@@ -41,6 +41,7 @@ public class MainMex : MonoBehaviour
 
     private bool win = false;
 
+    public int Lvl;
     public int one;
     public int two;
     public int three;
