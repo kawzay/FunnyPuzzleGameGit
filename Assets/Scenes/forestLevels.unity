@@ -891,6 +891,7 @@ GameObject:
   - component: {fileID: 736807753}
   - component: {fileID: 736807752}
   - component: {fileID: 736807751}
+  - component: {fileID: 736807754}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -961,7 +962,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 736807752}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 736807754}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SceneLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &736807752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +1013,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736807749}
   m_CullTransparentMesh: 1
+--- !u!114 &736807754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736807749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb64f10d3a2b3b644812fb67fd5ce507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &766531428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1865,7 @@ GameObject:
   - component: {fileID: 1427113709}
   - component: {fileID: 1427113708}
   - component: {fileID: 1427113707}
+  - component: {fileID: 1427113710}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1910,7 +1936,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427113708}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1427113710}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SceneLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1427113708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1949,6 +1987,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427113705}
   m_CullTransparentMesh: 1
+--- !u!114 &1427113710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427113705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb64f10d3a2b3b644812fb67fd5ce507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1516015066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +2011,7 @@ GameObject:
   - component: {fileID: 1516015069}
   - component: {fileID: 1516015068}
   - component: {fileID: 1516015070}
+  - component: {fileID: 1516015071}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2069,7 +2120,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1516015068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1516015071}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SceneLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1516015071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516015066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb64f10d3a2b3b644812fb67fd5ce507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1894027586
 GameObject:
   m_ObjectHideFlags: 0

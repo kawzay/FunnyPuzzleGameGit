@@ -14,25 +14,26 @@ public class chapters—ontroller : MonoBehaviour
     void Start()
     {
         var totalStars = int.Parse(GetStars.GetTotal());
+        Debug.Log(totalStars);
         chp2.interactable = false;
         chp3.interactable = false;
         chp4.interactable = false;
 
 
-        chp2.GetComponentInChildren<Text>().text = "9";
-        chp3.GetComponentInChildren<Text>().text = "20";
-        chp4.GetComponentInChildren<Text>().text = "30";
+        //chp2.GetComponentInChildren<Text>().text = "9";
+        //chp3.GetComponentInChildren<Text>().text = "20";
+        //chp4.GetComponentInChildren<Text>().text = "30";
 
         
-        if (totalStars > 8)
+        if (totalStars > 2)
         {
             chp2.interactable = true;
         }
-        else if (totalStars > 19)
+        if (totalStars > 4)
         {
             chp3.interactable = true;
         }
-        else if (totalStars > 29)
+        if (totalStars > 7)
         {
             chp4.interactable = true;
         }
