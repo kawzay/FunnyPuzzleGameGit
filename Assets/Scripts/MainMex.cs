@@ -633,6 +633,9 @@ public class MainMex : MonoBehaviour
             LastStar.GetComponent<Image>().color = Color;
             CircleLeft.SetActive(false);
             Play.SetActive(false);
+            PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
+            TotalStar.text = GetStars.GetTotal();
+            TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
             flag = 0;
 
@@ -662,7 +665,7 @@ public class MainMex : MonoBehaviour
                 Home.SetActive(false);
                 CircleRight.SetActive(false);
             }
-            PlusStar.text = GetStars.StarChanger(Lvl, stars);
+            PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
             Shadow.SetActive(true);
