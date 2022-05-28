@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class chapters—ontroller : MonoBehaviour
 {
     public Button chp1;
     public Button chp2;
+    public GameObject star2;
+    public TMP_Text textRef2;
     public Button chp3;
+    public TMP_Text textRef3;
+    public GameObject star3;
     public Button chp4;
+    public TMP_Text textRef4;
+    public GameObject star4;
 
     void Start()
     {
@@ -19,21 +26,26 @@ public class chapters—ontroller : MonoBehaviour
         chp4.interactable = false;
 
 
-        //chp2.GetComponentInChildren<Text>().text = "9";
-        //chp3.GetComponentInChildren<Text>().text = "20";
-        //chp4.GetComponentInChildren<Text>().text = "30";
-        //chp3.GetComponentInChildren<Text>().text = "ÕÓ‚˚È ÚÂÍÒÚ";
+        textRef2.text = "4";
+        textRef3.text = "7";
+        textRef4.text = "10";
 
         if (totalStars > 2)
         {
+            textRef2.text = "Ocean";
+            star2.SetActive(false);
             chp2.interactable = true;
         }
         if (totalStars > 4)
         {
+            textRef3.text = "Desert";
+            star3.SetActive(false);
             chp3.interactable = true;
         }
         if (totalStars > 7)
         {
+            textRef4.text = "North pole";
+            star4.SetActive(false);
             chp4.interactable = true;
         }
  
