@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class BiomLevels : MonoBehaviour
 {
@@ -16,14 +17,18 @@ public class BiomLevels : MonoBehaviour
     public Sprite resolvedLevel2;
     public Sprite resolvedLevel3;
     public Sprite resolvedLevel4;
-    int levelComplete;
+    string levelComplete;
     bool isCompleted = false;
 
 
 
     void Start()
     {
-        levelComplete = PlayerPrefs.GetInt("LevelComplete");
+        levelComplete = PlayerPrefs.GetString("LevelComplete");
+        //PlayerPrefs.SetString("LevelComplete", ""); //удалить прогресс
+        Debug.Log(levelComplete);
+
+        string[] levelCompleteArr = levelComplete.Split(new char[] { ' ' });
 
         var cc = lvl2.image.color;
         if (!isCompleted)
@@ -43,58 +48,7 @@ public class BiomLevels : MonoBehaviour
             lvl4.image.color = cc;
         }
 
-        if (levelComplete == 1 + startIndex)
-        {
-            lvl2.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            lvl1.image.sprite = resolvedLevel1;
-            lvl2.image.sprite = unlock;
-        }
-        if (levelComplete == 2 + startIndex)
-        {
-            lvl2.interactable = true;
-            lvl3.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            lvl1.image.sprite = resolvedLevel1;
-            lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = unlock;
-        }
-        if (levelComplete == 3 + startIndex)
-        {
-            lvl2.interactable = true;
-            lvl3.interactable = true;
-            lvl4.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            cc = lvl4.image.color;
-            cc.a = 1f;
-            lvl4.image.color = cc;
-
-            lvl1.image.sprite = resolvedLevel1;
-            lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = resolvedLevel3;
-            lvl4.image.sprite = unlock;
-        }
-        if (levelComplete >= 4 + startIndex)
+        if (levelCompleteArr.Contains((4 + startIndex).ToString()))
         {
             isCompleted = true;
             lvl2.interactable = true;
@@ -118,6 +72,61 @@ public class BiomLevels : MonoBehaviour
             lvl3.image.sprite = resolvedLevel3;
             lvl4.image.sprite = resolvedLevel4;
         }
+
+        else if (levelCompleteArr.Contains((3 + startIndex).ToString()))
+        {
+            lvl2.interactable = true;
+            lvl3.interactable = true;
+            lvl4.interactable = true;
+
+            cc = lvl2.image.color;
+            cc.a = 1f;
+            lvl2.image.color = cc;
+
+            cc = lvl3.image.color;
+            cc.a = 1f;
+            lvl3.image.color = cc;
+
+            cc = lvl4.image.color;
+            cc.a = 1f;
+            lvl4.image.color = cc;
+
+            lvl1.image.sprite = resolvedLevel1;
+            lvl2.image.sprite = resolvedLevel2;
+            lvl3.image.sprite = resolvedLevel3;
+            lvl4.image.sprite = unlock;
+        }
+
+        else if (levelCompleteArr.Contains((2 + startIndex).ToString()))
+        {
+            lvl2.interactable = true;
+            lvl3.interactable = true;
+
+            cc = lvl2.image.color;
+            cc.a = 1f;
+            lvl2.image.color = cc;
+
+            cc = lvl3.image.color;
+            cc.a = 1f;
+            lvl3.image.color = cc;
+
+            lvl1.image.sprite = resolvedLevel1;
+            lvl2.image.sprite = resolvedLevel2;
+            lvl3.image.sprite = unlock;
+        }
+
+        else if (levelCompleteArr.Contains((1 + startIndex).ToString()))
+        {
+            lvl2.interactable = true;
+
+            cc = lvl2.image.color;
+            cc.a = 1f;
+            lvl2.image.color = cc;
+
+            lvl1.image.sprite = resolvedLevel1;
+            lvl2.image.sprite = unlock;
+        }
+
     }
 
     public void LoadTo(int level)
