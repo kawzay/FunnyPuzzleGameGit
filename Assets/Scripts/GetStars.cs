@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GetStars
 {
-    public static int total = 0;
+    public static int total;
     public static int St1 = 0;
     public static int St2 = 0;
     public static int St3 = 0;
@@ -28,184 +28,380 @@ public class GetStars
         int i;
         if(lvl == 1)
         {
-            i = count - St1;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St1"))
             {
-                St1 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St1");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St1", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St1", count);
+            return count.ToString();
         }
         else if (lvl == 2)
         {
-            i = count - St2;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St2"))
             {
-                St2 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St2");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St2", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St2", count);
+            return count.ToString();
         }
         else if (lvl == 3)
         {
-            i = count - St3;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St3"))
             {
-                St3 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St3");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St3", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St3", count);
+            return count.ToString();
         }
         else if (lvl == 4)
         {
-            i = count - St4;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St4"))
             {
-                St4 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St4");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St4", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St4", count);
+            return count.ToString();
         }
         else if (lvl == 5)
         {
-            i = count - St5;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St5"))
             {
-                St5 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St5");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St5", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St5", count);
+            return count.ToString();
         }
         else if (lvl == 6)
         {
-            i = count - St6;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St6"))
             {
-                St6 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St6");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St6", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St6", count);
+            return count.ToString();
         }
         else if (lvl == 7)
         {
-            i = count - St7;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St7"))
             {
-                St7 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St7");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St7", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St7", count);
+            return count.ToString();
         }
         else if (lvl == 8)
         {
-            i = count - St8;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St8"))
             {
-                St8 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St8");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St8", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St8", count);
+            return count.ToString();
         }
         else if (lvl == 9)
         {
-            i = count - St9;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St9"))
             {
-                St9 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St9");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St9", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St9", count);
+            return count.ToString();
         }
         else if (lvl == 10)
         {
-            i = count - St10;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St10"))
             {
-                St10 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St10");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St10", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St10", count);
+            return count.ToString();
         }
         else if (lvl == 11)
         {
-            i = count - St11;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St11"))
             {
-                St11 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St11");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St11", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St11", count);
+            return count.ToString();
         }
         else if (lvl == 12)
         {
-            i = count - St12;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St12"))
             {
-                St12 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St12");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St12", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St12", count);
+            return count.ToString();
         }
         else if (lvl == 13)
         {
-            i = count - St13;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St13"))
             {
-                St13 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St13");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St13", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St13", count);
+            return count.ToString();
         }
         else if (lvl == 14)
         {
-            i = count - St14;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St14"))
             {
-                St14 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St14");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St14", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St14", count);
+            return count.ToString();
         }
         else if (lvl == 15)
         {
-            i = count - St15;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St15"))
             {
-                St15 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St15");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St15", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St15", count);
+            return count.ToString();
         }
         else
         {
-            i = count - St16;
-            if (i > 0)
+            if (PlayerPrefs.HasKey("St16"))
             {
-                St16 = count;
-                total += i;
-                return i.ToString();
+                i = count - PlayerPrefs.GetInt("St16");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St16", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
             }
-            return "0";
+            PlayerPrefs.SetInt("St16", count);
+            return count.ToString();
         }
     }
 
     public static string GetTotal()
     {
-        return total.ToString();
+        if (PlayerPrefs.HasKey("TotalStar"))
+            return PlayerPrefs.GetInt("TotalStar").ToString();
+        else
+            PlayerPrefs.SetInt("TotalStar", 0);
+        return "0";
     }
 }
