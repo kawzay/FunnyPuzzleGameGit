@@ -12,61 +12,38 @@ public class BiomLevels : MonoBehaviour
     public Button lvl3;
     public Button lvl4;
     public int startIndex;
+    public Sprite lockLevel;
     public Sprite unlock;
     public Sprite resolvedLevel1;
     public Sprite resolvedLevel2;
     public Sprite resolvedLevel3;
     public Sprite resolvedLevel4;
     string levelComplete;
-    bool isCompleted = false;
 
 
 
     void Start()
     {
+        lvl2.interactable = false;
+        lvl3.interactable = false;
+        lvl4.interactable = false;
+
+        lvl1.image.sprite = unlock;
+        lvl2.image.sprite = lockLevel;
+        lvl3.image.sprite = lockLevel;
+        lvl4.image.sprite = lockLevel;
+
         levelComplete = PlayerPrefs.GetString("LevelComplete");
         //PlayerPrefs.SetString("LevelComplete", ""); //удалить прогресс
-        Debug.Log(levelComplete);
-
         string[] levelCompleteArr = levelComplete.Split(new char[] { ' ' });
 
-        var cc = lvl2.image.color;
-        if (!isCompleted)
-        {
-            lvl2.interactable = false;
-            lvl3.interactable = false;
-            lvl4.interactable = false;
-
-            cc = lvl2.image.color;
-            cc.a = 0f;
-            lvl2.image.color = cc;
-            cc = lvl3.image.color;
-            cc.a = 0f;
-            lvl3.image.color = cc;
-            cc = lvl4.image.color;
-            cc.a = 0f;
-            lvl4.image.color = cc;
-        }
 
         if (levelCompleteArr.Contains((4 + startIndex).ToString()))
         {
-            isCompleted = true;
             lvl2.interactable = true;
             lvl3.interactable = true;
             lvl4.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            cc = lvl4.image.color;
-            cc.a = 1f;
-            lvl4.image.color = cc;
-
+       
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
             lvl3.image.sprite = resolvedLevel3;
@@ -79,18 +56,6 @@ public class BiomLevels : MonoBehaviour
             lvl3.interactable = true;
             lvl4.interactable = true;
 
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            cc = lvl4.image.color;
-            cc.a = 1f;
-            lvl4.image.color = cc;
-
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
             lvl3.image.sprite = resolvedLevel3;
@@ -102,44 +67,22 @@ public class BiomLevels : MonoBehaviour
             lvl2.interactable = true;
             lvl3.interactable = true;
 
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
             lvl3.image.sprite = unlock;
+            lvl4.image.sprite = lockLevel;
         }
 
         else if (levelCompleteArr.Contains((1 + startIndex).ToString()))
         {
             lvl2.interactable = true;
 
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = unlock;
+            lvl3.image.sprite = lockLevel;
+            lvl4.image.sprite = lockLevel;
         }
 
-    }
-
-    public void LoadTo(int level)
-    {
-        SceneManager.LoadScene(level);
-    }
-
-    public void Reset()
-    {
-        lvl2.interactable = false;
-        lvl3.interactable = false;
-        lvl4.interactable = false;
-        PlayerPrefs.DeleteAll();
     }
 }
 
