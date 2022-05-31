@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class BiomLevels : MonoBehaviour
 {
@@ -11,126 +12,77 @@ public class BiomLevels : MonoBehaviour
     public Button lvl3;
     public Button lvl4;
     public int startIndex;
+    public Sprite lockLevel;
     public Sprite unlock;
     public Sprite resolvedLevel1;
     public Sprite resolvedLevel2;
     public Sprite resolvedLevel3;
     public Sprite resolvedLevel4;
-    int levelComplete;
-    bool isCompleted = false;
+    string levelComplete;
 
 
 
     void Start()
     {
-        levelComplete = PlayerPrefs.GetInt("LevelComplete");
+        lvl2.interactable = false;
+        lvl3.interactable = false;
+        lvl4.interactable = false;
 
-        var cc = lvl2.image.color;
-        if (!isCompleted)
-        {
-            lvl2.interactable = false;
-            lvl3.interactable = false;
-            lvl4.interactable = false;
+        lvl1.image.sprite = unlock;
+        lvl2.image.sprite = lockLevel;
+        lvl3.image.sprite = lockLevel;
+        lvl4.image.sprite = lockLevel;
 
-            cc = lvl2.image.color;
-            cc.a = 0f;
-            lvl2.image.color = cc;
-            cc = lvl3.image.color;
-            cc.a = 0f;
-            lvl3.image.color = cc;
-            cc = lvl4.image.color;
-            cc.a = 0f;
-            lvl4.image.color = cc;
-        }
+        levelComplete = PlayerPrefs.GetString("LevelComplete");
+        //PlayerPrefs.SetString("LevelComplete", ""); //удалить прогресс
+        string[] levelCompleteArr = levelComplete.Split(new char[] { ' ' });
 
-        if (levelComplete == 1 + startIndex)
-        {
-            lvl2.interactable = true;
 
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            lvl1.image.sprite = resolvedLevel1;
-            lvl2.image.sprite = unlock;
-        }
-        if (levelComplete == 2 + startIndex)
-        {
-            lvl2.interactable = true;
-            lvl3.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            lvl1.image.sprite = resolvedLevel1;
-            lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = unlock;
-        }
-        if (levelComplete == 3 + startIndex)
+        if (levelCompleteArr.Contains((4 + startIndex).ToString()))
         {
             lvl2.interactable = true;
             lvl3.interactable = true;
             lvl4.interactable = true;
+       
+            lvl1.image.sprite = resolvedLevel1;
+            lvl2.image.sprite = resolvedLevel2;
+            lvl3.image.sprite = resolvedLevel3;
+            lvl4.image.sprite = resolvedLevel4;
+        }
 
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            cc = lvl4.image.color;
-            cc.a = 1f;
-            lvl4.image.color = cc;
+        else if (levelCompleteArr.Contains((3 + startIndex).ToString()))
+        {
+            lvl2.interactable = true;
+            lvl3.interactable = true;
+            lvl4.interactable = true;
 
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
             lvl3.image.sprite = resolvedLevel3;
             lvl4.image.sprite = unlock;
         }
-        if (levelComplete >= 4 + startIndex)
+
+        else if (levelCompleteArr.Contains((2 + startIndex).ToString()))
         {
-            isCompleted = true;
             lvl2.interactable = true;
             lvl3.interactable = true;
-            lvl4.interactable = true;
-
-            cc = lvl2.image.color;
-            cc.a = 1f;
-            lvl2.image.color = cc;
-
-            cc = lvl3.image.color;
-            cc.a = 1f;
-            lvl3.image.color = cc;
-
-            cc = lvl4.image.color;
-            cc.a = 1f;
-            lvl4.image.color = cc;
 
             lvl1.image.sprite = resolvedLevel1;
             lvl2.image.sprite = resolvedLevel2;
-            lvl3.image.sprite = resolvedLevel3;
-            lvl4.image.sprite = resolvedLevel4;
+            lvl3.image.sprite = unlock;
+            lvl4.image.sprite = lockLevel;
         }
-    }
 
-    public void LoadTo(int level)
-    {
-        SceneManager.LoadScene(level);
-    }
+        else if (levelCompleteArr.Contains((1 + startIndex).ToString()))
+        {
+            lvl2.interactable = true;
 
-    public void Reset()
-    {
-        lvl2.interactable = false;
-        lvl3.interactable = false;
-        lvl4.interactable = false;
-        PlayerPrefs.DeleteAll();
+            lvl1.image.sprite = resolvedLevel1;
+            lvl2.image.sprite = unlock;
+            lvl3.image.sprite = lockLevel;
+            lvl4.image.sprite = lockLevel;
+        }
+
     }
 }
 
