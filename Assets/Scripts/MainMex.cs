@@ -16,6 +16,8 @@ public class MainMex : MonoBehaviour
     public TextMeshProUGUI Text;
     public TextMeshProUGUI MaxValue;
     RectTransform transform;
+    public GameObject Finalimg;
+    public GameObject PausePanel;
     public GameObject StatusBar;
     public GameObject StatusBack;
     public GameObject LastStar;
@@ -92,6 +94,8 @@ public class MainMex : MonoBehaviour
         isMobile = Application.isMobilePlatform;
         Shadow.SetActive(false);
         WinOrDefeatButton.gameObject.SetActive(false);
+        Finalimg.SetActive(false);
+        PausePanel.SetActive(false);
         Text.text = points.ToString();
         MaxValue.text = points.ToString();
         transform = StatusBack.GetComponent<RectTransform>();
@@ -783,6 +787,7 @@ public class MainMex : MonoBehaviour
         StatusBar.GetComponent<RectTransform>().offsetMax = new Vector2(StatusBar.GetComponent<RectTransform>().offsetMax.x - piece, 0);
         if (points == 0)
         {
+            PausePanel.SetActive(true);
             WinOrDefeatButton.gameObject.SetActive(true);
 
             stars--;
@@ -810,6 +815,8 @@ public class MainMex : MonoBehaviour
         }
         if (win)
         {
+            PausePanel.SetActive(true);
+            Finalimg.SetActive(true);
             WinOrDefeatButton.gameObject.SetActive(true);
 
             TxtLvl.text = "Пазл собран";
