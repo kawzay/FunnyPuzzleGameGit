@@ -44,7 +44,7 @@ public class DrowStars : MonoBehaviour
     {
             if(first == 1)
             {
-                var q = GetStars.St1;
+                var q = PlayerPrefs.GetInt("St1");
                 Z11.SetActive(true);
                 Z12.SetActive(true);
                 Z13.SetActive(true);
@@ -64,7 +64,7 @@ public class DrowStars : MonoBehaviour
             }
             if(first == 5)
             {
-                var q = GetStars.St5;
+                var q = PlayerPrefs.GetInt("St5");
                 Z11.SetActive(true);
                 Z12.SetActive(true);
                 Z13.SetActive(true);
@@ -84,7 +84,7 @@ public class DrowStars : MonoBehaviour
             }
             if (first == 9)
             {
-                var q = GetStars.St9;
+                var q = PlayerPrefs.GetInt("St9");
                 Z11.SetActive(true);
                 Z12.SetActive(true);
                 Z13.SetActive(true);
@@ -104,7 +104,7 @@ public class DrowStars : MonoBehaviour
             }
             if (first == 13)
             {
-                var q = GetStars.St13;
+                var q = PlayerPrefs.GetInt("St13");
                 Z11.SetActive(true);
                 Z12.SetActive(true);
                 Z13.SetActive(true);
@@ -124,7 +124,7 @@ public class DrowStars : MonoBehaviour
             }
             if (sec == 2)
             {
-                var q = GetStars.St2;
+                var q = PlayerPrefs.GetInt("St2");
                 Z21.SetActive(true);
                 Z22.SetActive(true);
                 Z23.SetActive(true);
@@ -144,7 +144,7 @@ public class DrowStars : MonoBehaviour
             }
             if (sec == 6)
             {
-                var q = GetStars.St6;
+                var q = PlayerPrefs.GetInt("St6");
                 Z21.SetActive(true);
                 Z22.SetActive(true);
                 Z23.SetActive(true);
@@ -164,7 +164,7 @@ public class DrowStars : MonoBehaviour
             }
             if (sec == 10)
             {
-                var q = GetStars.St10;
+                var q = PlayerPrefs.GetInt("St10");
                 Z21.SetActive(true);
                 Z22.SetActive(true);
                 Z23.SetActive(true);
@@ -184,7 +184,7 @@ public class DrowStars : MonoBehaviour
             }
             if (sec == 14)
             {
-                var q = GetStars.St14;
+                var q = PlayerPrefs.GetInt("St14");
                 Z21.SetActive(true);
                 Z22.SetActive(true);
                 Z23.SetActive(true);
@@ -204,7 +204,7 @@ public class DrowStars : MonoBehaviour
             }
             if (thir == 3)
             {
-                var q = GetStars.St3;
+                var q = PlayerPrefs.GetInt("St3");
                 Z31.SetActive(true);
                 Z32.SetActive(true);
                 Z33.SetActive(true);
@@ -224,7 +224,7 @@ public class DrowStars : MonoBehaviour
             }
             if (thir == 7)
             {
-                var q = GetStars.St7;
+                var q = PlayerPrefs.GetInt("St7");
                 Z31.SetActive(true);
                 Z32.SetActive(true);
                 Z33.SetActive(true);
@@ -244,7 +244,7 @@ public class DrowStars : MonoBehaviour
             }
             if (thir == 11)
             {
-                var q = GetStars.St11;
+                var q = PlayerPrefs.GetInt("St11");
                 Z31.SetActive(true);
                 Z32.SetActive(true);
                 Z33.SetActive(true);
@@ -264,7 +264,7 @@ public class DrowStars : MonoBehaviour
             }
             if (thir == 15)
             {
-                var q = GetStars.St15;
+                var q = PlayerPrefs.GetInt("St15");
                 Z31.SetActive(true);
                 Z32.SetActive(true);
                 Z33.SetActive(true);
@@ -284,7 +284,7 @@ public class DrowStars : MonoBehaviour
             }
             if (four == 4)
             {
-                var q = GetStars.St4;
+                var q = PlayerPrefs.GetInt("St4");
                 Z41.SetActive(true);
                 Z42.SetActive(true);
                 Z43.SetActive(true);
@@ -304,7 +304,7 @@ public class DrowStars : MonoBehaviour
             }
             if (four == 8)
             {
-                var q = GetStars.St8;
+                var q = PlayerPrefs.GetInt("St8");
                 Z41.SetActive(true);
                 Z42.SetActive(true);
                 Z43.SetActive(true);
@@ -324,7 +324,7 @@ public class DrowStars : MonoBehaviour
             }
             if (four == 12)
             {
-                var q = GetStars.St12;
+                var q = PlayerPrefs.GetInt("St12");
                 Z41.SetActive(true);
                 Z42.SetActive(true);
                 Z43.SetActive(true);
@@ -344,7 +344,7 @@ public class DrowStars : MonoBehaviour
             }
             if (four == 16)
             {
-                var q = GetStars.St16;
+                var q = PlayerPrefs.GetInt("St16");
                 Z41.SetActive(true);
                 Z42.SetActive(true);
                 Z43.SetActive(true);

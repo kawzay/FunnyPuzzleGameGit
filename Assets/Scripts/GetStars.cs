@@ -34,8 +34,9 @@ public class GetStars
                 if (i > 0)
                 {
                     PlayerPrefs.SetInt("St1", count);
+                    Debug.Log(PlayerPrefs.GetInt("St1"));
                     if (PlayerPrefs.HasKey("TotalStar"))
-                    {
+                    {   
                         PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
                     }
                     else

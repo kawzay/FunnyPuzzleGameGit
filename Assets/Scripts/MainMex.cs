@@ -22,6 +22,8 @@ public class MainMex : MonoBehaviour
     public GameObject LastStar2;
     public GameObject LastStar3;
     public GameObject Shadow;
+    public GameObject ResetPanel;
+    public GameObject MenuPanel;
     public TextMeshProUGUI TxtLvl;
     public Button WinOrDefeatButton;
     public int points;
@@ -30,7 +32,7 @@ public class MainMex : MonoBehaviour
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    //public static int flag = 1;
+    public static int flag = 1;
 
 
     public Image S1;
@@ -114,6 +116,9 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
+
+        if(CheckLock())
+        {
             var high = Screen.height;
             var widt = Screen.width;
 
@@ -208,7 +213,7 @@ public class MainMex : MonoBehaviour
                 }
                 ResetSwipe();
             }
-
+        }
     }
 
     private void ResetSwipe()
@@ -677,5 +682,16 @@ public class MainMex : MonoBehaviour
             TotalStar2.text = TotalStar.text;
             //Shadow.SetActive(true);
         }
+    }
+
+    public bool CheckLock()
+    {
+        if (WinOrDefeatButton.gameObject.activeInHierarchy)
+            return false;
+        else if (ResetPanel.activeInHierarchy)
+            return false;
+        else if (MenuPanel.activeInHierarchy)
+            return false;
+        return true;
     }
 }
