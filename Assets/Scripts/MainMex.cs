@@ -32,7 +32,6 @@ public class MainMex : MonoBehaviour
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    public static int flag = 1;
 
 
     public Image S1;
@@ -70,7 +69,24 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PlayerPrefs.SetInt("TotalStar", 0);
+        //PlayerPrefs.SetInt("St1", 0);
+        //PlayerPrefs.SetInt("St2", 0);
+        //PlayerPrefs.SetInt("St3", 0);
+        //PlayerPrefs.SetInt("St4", 0);
+        //PlayerPrefs.SetInt("St5", 0);
+        //PlayerPrefs.SetInt("St6", 0);
+        //PlayerPrefs.SetInt("St7", 0);
+        //PlayerPrefs.SetInt("St8", 0);
+        //PlayerPrefs.SetInt("St9", 0);
+        //PlayerPrefs.SetInt("St10", 0);
+        //PlayerPrefs.SetInt("St11", 0);
+        //PlayerPrefs.SetInt("St12", 0);
+        //PlayerPrefs.SetInt("St13", 0);
+        //PlayerPrefs.SetInt("St14", 0);
+        //PlayerPrefs.SetInt("St15", 0);
+        //PlayerPrefs.SetInt("St16", 0);
+
         TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
         isMobile = Application.isMobilePlatform;
@@ -666,7 +682,7 @@ public class MainMex : MonoBehaviour
         {
             WinOrDefeatButton.gameObject.SetActive(true);
 
-            TxtLvl.text = "Picture Completed";
+            TxtLvl.text = "Пазл собран";
             if (stars == 3)
             {
                 CircleRight.SetActive(false);

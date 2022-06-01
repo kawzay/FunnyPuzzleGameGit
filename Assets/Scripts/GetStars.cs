@@ -5,23 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class GetStars
 {
-    public static int total;
-    public static int St1 = 0;
-    public static int St2 = 0;
-    public static int St3 = 0;
-    public static int St4 = 0;
-    public static int St5 = 0;
-    public static int St6 = 0;
-    public static int St7 = 0;
-    public static int St8 = 0;
-    public static int St9 = 0;
-    public static int St10 = 0;
-    public static int St11 = 0;
-    public static int St12 = 0;
-    public static int St13 = 0;
-    public static int St14 = 0;
-    public static int St15 = 0;
-    public static int St16 = 0;
 
     public static string StarChanger(int lvl, int count)
     {
