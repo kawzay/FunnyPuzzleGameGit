@@ -60,7 +60,7 @@ public class MainMex : MonoBehaviour
     public delegate void OnSwipeInput(Vector2 dec);
     private Vector2 tapPos;
     private Vector2 swipeDelta;
-    private readonly float deadZone = 60;
+    private float deadZone;
 
     private bool isSwiped;
     private bool isMobile;
@@ -104,9 +104,11 @@ public class MainMex : MonoBehaviour
         if (!isMobile)
         {
             if (Input.GetMouseButtonDown(0))
-            {
+            {     
                 isSwiped = true;
                 tapPos = Input.mousePosition;
+                Debug.Log(tapPos.x + "x");
+                Debug.Log(tapPos.y + "y");
             }
             else if (Input.GetMouseButtonUp(0))
                 ResetSwipe();
@@ -132,102 +134,230 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
+        var high = Screen.height;
+        var widt = Screen.width;
 
-        if(CheckLock())
+        float firHigh;
+        float firWidt;
+        float secHigh;
+        float secWidt;
+        float thiHigh;
+        float thiWidt;
+
+        if (0 < (high * widt) / 1000 && (high * widt) / 1000 <= 384)
+            deadZone = 80;
+        else if ((high * widt) / 1000 > 384 && (high * widt) / 1000 <= 410)
+            deadZone = 100;
+        else if ((high * widt) / 1000 > 410 && (high * widt) / 1000 <= 640)
+            deadZone = 120;
+        else if ((high * widt) / 1000 > 640 && (high * widt) / 1000 <= 922)
+            deadZone = 150;
+        else if ((high * widt) / 1000 > 922 && (high * widt) / 1000 <= 2074)
+            deadZone = 230;
+        else if (((high * widt) / 1000 > 2074 && (high * widt) / 1000 <= 2333))
+            deadZone = 270;
+        else if ((high * widt) / 1000 > 2333 && (high * widt) / 1000 <= 3887)
+            deadZone = 300;
+        else if ((high * widt) / 1000 > 3887 && (high * widt) / 1000 <= 4263)
+            deadZone = 380;
+        else
+            deadZone = 450;
+
+        if (CheckLock())
         {
-            var high = Screen.height;
-            var widt = Screen.width;
-
-            var firHigh = high / 1.854;
-            var secHigh = high / 2.537;
-            var thiHigh = high / 4.08;
-
-            var firWidt = widt / 4.3125;
-            var secWidt = widt / 2;
-            var thiWidt = widt / 1.32;
-
-            swipeDelta = Vector2.zero;
-
-
-            if (isSwiped)
+            if (high > widt)
             {
-                if (!isMobile && Input.GetMouseButton(0))
+
+
+                firHigh = high / 1.854f;
+                secHigh = high / 2.537f;
+                thiHigh = high / 4.08f;
+
+                firWidt = widt / 4.3125f;
+                secWidt = widt / 2f;
+                thiWidt = widt / 1.32f;
+
+                swipeDelta = Vector2.zero;
+
+
+                if (isSwiped)
                 {
-                    swipeDelta = (Vector2)Input.mousePosition - tapPos;
+                    if (!isMobile && Input.GetMouseButton(0))
+                    {
+                        swipeDelta = (Vector2)Input.mousePosition - tapPos;
+                    }
+                    else if (Input.touchCount > 0)
+                        swipeDelta = Input.GetTouch(0).position - tapPos;
                 }
-                else if (Input.touchCount > 0)
-                    swipeDelta = Input.GetTouch(0).position - tapPos;
+
+                if (swipeDelta.magnitude > deadZone)
+                {
+                    if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
+                    {
+                        if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                        {
+                            if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
+                            {
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightFirstLine(S1, S2, S3);
+                                }
+                                else
+                                {
+                                    MoveLeftFirstLine(S1, S2, S3);
+                                }
+                            }
+                            else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
+                            {
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightSecondLine(S4, S5, S6);
+                                }
+                                else
+                                {
+                                    MoveLeftSecondLine(S4, S5, S6);
+                                }
+                            }
+                            else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
+                            {
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightTrirdLine(S7, S8, S9);
+                                }
+                                else
+                                {
+                                    MoveLeftThirdLine(S7, S8, S9);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (tapPos.y < firHigh + (firHigh - firHigh * 0.879) && tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh))
+                        {
+                            if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpFirstLine(S1, S4, S7);
+                                else
+                                    MoveDownFirstLine(S1, S4, S7);
+                            }
+                            if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpSecondLine(S2, S5, S8);
+                                else
+                                    MoveDownSecondLine(S2, S5, S8);
+                            }
+                            if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpTrirdLine(S3, S6, S9);
+                                else
+                                    MoveDownThirdLine(S3, S6, S9);
+                            }
+                        }        
+                    }
+                    ResetSwipe();
+
+                }
             }
-
-            if (swipeDelta.magnitude > deadZone)
+            else
             {
-                if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
+                firHigh = high / 1.825f;
+                secHigh = high / 2.548f;
+                thiHigh = high / 3.9669f;
+
+                firWidt = widt / 2.3747f;
+                secWidt = widt / 2f;
+                thiWidt = widt / 1.7403f;
+
+                //firHigh = high / 1.825f;
+                //secHigh = high / 2f;
+                //thiHigh = high / 2.975f;
+                swipeDelta = Vector2.zero;
+
+
+                if (isSwiped)
                 {
-                    if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
+                    if (!isMobile && Input.GetMouseButton(0))
                     {
-                        if (tapPos.y > firHigh - (firHigh * 1.13 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.879))
+                        swipeDelta = (Vector2)Input.mousePosition - tapPos;
+                    }
+                    else if (Input.touchCount > 0)
+                        swipeDelta = Input.GetTouch(0).position - tapPos;
+                }
+
+                if (swipeDelta.magnitude > deadZone)
+                {
+                    if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
+                    {
+                        if (tapPos.x > firWidt - (firWidt - firWidt * 0.898) && tapPos.x < thiWidt + (thiWidt * 1.0708 - thiWidt))
                         {
-                            if (swipeDelta.x > 0)
+                            if (tapPos.y > firHigh - (firHigh * 1.117 - firHigh) && tapPos.y < firHigh + (firHigh - firHigh * 0.872))
                             {
-                                MoveRightFirstLine(S1, S2, S3);
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightFirstLine(S1, S2, S3);
+                                }
+                                else
+                                {
+                                    MoveLeftFirstLine(S1, S2, S3);
+                                }
                             }
-                            else
+                            else if (tapPos.y > secHigh - (secHigh * 1.1912 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.85))
                             {
-                                MoveLeftFirstLine(S1, S2, S3);
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightSecondLine(S4, S5, S6);
+                                }
+                                else
+                                {
+                                    MoveLeftSecondLine(S4, S5, S6);
+                                }
                             }
-                        }
-                        else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
-                        {
-                            if (swipeDelta.x > 0)
+                            else if (tapPos.y > thiHigh - (thiHigh * 1.2785 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.75))
                             {
-                                MoveRightSecondLine(S4, S5, S6);
-                            }
-                            else
-                            {
-                                MoveLeftSecondLine(S4, S5, S6);
-                            }
-                        }
-                        else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
-                        {
-                            if (swipeDelta.x > 0)
-                            {
-                                MoveRightTrirdLine(S7, S8, S9);
-                            }
-                            else
-                            {
-                                MoveLeftThirdLine(S7, S8, S9);
+                                if (swipeDelta.x > 0)
+                                {
+                                    MoveRightTrirdLine(S7, S8, S9);
+                                }
+                                else
+                                {
+                                    MoveLeftThirdLine(S7, S8, S9);
+                                }
                             }
                         }
                     }
-                }
-                else
-                {
-                    if (tapPos.y < firHigh + (firHigh - firHigh * 0.879) && tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh))
+                    else
                     {
-                        if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
+                        if (tapPos.y < firHigh + (firHigh - firHigh * 0.872) && tapPos.y > thiHigh - (thiHigh * 1.2785 - thiHigh))
                         {
-                            if (swipeDelta.y > 0)
-                                MoveUpFirstLine(S1, S4, S7);
-                            else
-                                MoveDownFirstLine(S1, S4, S7);
-                        }
-                        if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
-                        {
-                            if (swipeDelta.y > 0)
-                                MoveUpSecondLine(S2, S5, S8);
-                            else
-                                MoveDownSecondLine(S2, S5, S8);
-                        }
-                        if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
-                        {
-                            if (swipeDelta.y > 0)
-                                MoveUpTrirdLine(S3, S6, S9);
-                            else
-                                MoveDownThirdLine(S3, S6, S9);
-                        }
+                            if (tapPos.x > firWidt - (firWidt - firWidt * 0.898) && tapPos.x < firWidt + (firWidt * 1.079 - firWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpFirstLine(S1, S4, S7);
+                                else
+                                    MoveDownFirstLine(S1, S4, S7);
+                            }
+                            if (tapPos.x > secWidt - (secWidt - secWidt * 0.9204) && tapPos.x < secWidt + (secWidt * 1.0696 - secWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpSecondLine(S2, S5, S8);
+                                else
+                                    MoveDownSecondLine(S2, S5, S8);
+                            }
+                            if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.941) && tapPos.x < thiWidt + (thiWidt * 1.0708 - thiWidt))
+                            {
+                                if (swipeDelta.y > 0)
+                                    MoveUpTrirdLine(S3, S6, S9);
+                                else
+                                    MoveDownThirdLine(S3, S6, S9);
+                            }
+                        }           
                     }
+                    ResetSwipe();
                 }
-                ResetSwipe();
             }
         }
     }
