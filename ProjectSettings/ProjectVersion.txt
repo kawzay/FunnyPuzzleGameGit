@@ -1,2 +1,12 @@
+<<<<<<< HEAD
 m_EditorVersion: 2022.1.1f1
 m_EditorVersionWithRevision: 2022.1.1f1 (53d13f540f71)
+=======
+<<<<<<< HEAD
+m_EditorVersion: 2021.3.0f1
+m_EditorVersionWithRevision: 2021.3.0f1 (6eacc8284459)
+=======
+m_EditorVersion: 2022.1.2f1
+m_EditorVersionWithRevision: 2022.1.2f1 (9427c1534183)
+>>>>>>> remotes/origin/Igor3.0
+>>>>>>> remotes/origin/Igor3.0

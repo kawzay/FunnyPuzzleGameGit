@@ -22,14 +22,16 @@ public class MainMex : MonoBehaviour
     public GameObject LastStar2;
     public GameObject LastStar3;
     public GameObject Shadow;
+    public GameObject ResetPanel;
+    public GameObject MenuPanel;
     public TextMeshProUGUI TxtLvl;
+    public Button WinOrDefeatButton;
     public int points;
     public int OneStar;
     public int TwoStar;
     private Vector4 Color = new Vector4(49 / 255.0f, 41 / 255.0f, 41 / 255.0f, 1);
     private int stars = 3;
     float piece;
-    //public static int flag = 1;
 
 
     public Image S1;
@@ -42,7 +44,7 @@ public class MainMex : MonoBehaviour
     public Image S8;
     public Image S9;
 
-    private bool win = false;
+    public bool win = false;
 
     public int Lvl;
     public int one;
@@ -67,11 +69,29 @@ public class MainMex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PlayerPrefs.SetInt("TotalStar", 0);
+        //PlayerPrefs.SetInt("St1", 0);
+        //PlayerPrefs.SetInt("St2", 0);
+        //PlayerPrefs.SetInt("St3", 0);
+        //PlayerPrefs.SetInt("St4", 0);
+        //PlayerPrefs.SetInt("St5", 0);
+        //PlayerPrefs.SetInt("St6", 0);
+        //PlayerPrefs.SetInt("St7", 0);
+        //PlayerPrefs.SetInt("St8", 0);
+        //PlayerPrefs.SetInt("St9", 0);
+        //PlayerPrefs.SetInt("St10", 0);
+        //PlayerPrefs.SetInt("St11", 0);
+        //PlayerPrefs.SetInt("St12", 0);
+        //PlayerPrefs.SetInt("St13", 0);
+        //PlayerPrefs.SetInt("St14", 0);
+        //PlayerPrefs.SetInt("St15", 0);
+        //PlayerPrefs.SetInt("St16", 0);
+
         TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
         isMobile = Application.isMobilePlatform;
         Shadow.SetActive(false);
+        WinOrDefeatButton.gameObject.SetActive(false);
         Text.text = points.ToString();
         MaxValue.text = points.ToString();
         transform = StatusBack.GetComponent<RectTransform>();
@@ -112,6 +132,9 @@ public class MainMex : MonoBehaviour
 
     private void CheckSwipe()
     {
+
+        if(CheckLock())
+        {
             var high = Screen.height;
             var widt = Screen.width;
 
@@ -206,7 +229,7 @@ public class MainMex : MonoBehaviour
                 }
                 ResetSwipe();
             }
-
+        }
     }
 
     private void ResetSwipe()
@@ -613,7 +636,7 @@ public class MainMex : MonoBehaviour
         if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
             six == 6 && seven == 7 && eight == 8 && nine == 9)
         {
-            var prevLvls = PlayerPrefs.GetString("LevelComplete");  // Код для подсчета уровней
+            var prevLvls = PlayerPrefs.GetString("LevelComplete");  // Код для подсчета пройденных уровней
             if (!prevLvls.Contains(Lvl.ToString()))
             {
                 PlayerPrefs.SetString("LevelComplete", prevLvls + " " + Lvl.ToString());
@@ -630,6 +653,8 @@ public class MainMex : MonoBehaviour
         StatusBar.GetComponent<RectTransform>().offsetMax = new Vector2(StatusBar.GetComponent<RectTransform>().offsetMax.x - piece, 0);
         if (points == 0)
         {
+            WinOrDefeatButton.gameObject.SetActive(true);
+
             stars--;
             GameObject.Find("Star").GetComponent<Image>().color = Color;
             LastStar.GetComponent<Image>().color = Color;
@@ -638,7 +663,7 @@ public class MainMex : MonoBehaviour
             PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
-            Shadow.SetActive(true);
+            //Shadow.SetActive(true);
 
         }
         else if (points == OneStar)
@@ -655,7 +680,9 @@ public class MainMex : MonoBehaviour
         }
         if (win)
         {
-            TxtLvl.text = "Picture Complited";
+            WinOrDefeatButton.gameObject.SetActive(true);
+
+            TxtLvl.text = "Пазл собран";
             if (stars == 3)
             {
                 CircleRight.SetActive(false);
@@ -669,7 +696,18 @@ public class MainMex : MonoBehaviour
             PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
-            Shadow.SetActive(true);
+            //Shadow.SetActive(true);
         }
+    }
+
+    public bool CheckLock()
+    {
+        if (WinOrDefeatButton.gameObject.activeInHierarchy)
+            return false;
+        else if (ResetPanel.activeInHierarchy)
+            return false;
+        else if (MenuPanel.activeInHierarchy)
+            return false;
+        return true;
     }
 }
