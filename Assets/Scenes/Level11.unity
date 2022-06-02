@@ -1767,7 +1767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1dcbae34a58352a47b9e048a5a7c2945, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 072dde0bd85bb9247aa6b0c143fa0f14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2071,7 +2071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b017e71c026d380479463e38a84f24ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 464499fe43b30034881e8e617b350e85, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2906,7 +2906,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 11
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3190,7 +3190,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3467,7 +3467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9aacd849b1b484b43b6180a98eb8ccbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d8db50271aa389459955a9f3b147f54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3644,7 +3644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 626a21fd0fddaf349a9c4645ac03869b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e55eeb53fdb430249aa564bdaffc2922, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3834,7 +3834,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3960,7 +3960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1599b19633d44ba40b464aec27d16384, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a7f1ba9c90294447947165ee5a8a2cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4503,7 +4503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2aaef63cee9364042b80dcea27a1aa2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6352f85632ba2b4bbc6bd52367a3841, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4970,9 +4970,9 @@ MonoBehaviour:
   MenuPanel: {fileID: 345456783}
   TxtLvl: {fileID: 1323525175}
   WinOrDefeatButton: {fileID: 1393485972}
-  points: 5
-  OneStar: 3
-  TwoStar: 1
+  points: 18
+  OneStar: 12
+  TwoStar: 8
   S1: {fileID: 984841660}
   S2: {fileID: 2097200742}
   S3: {fileID: 937533957}
@@ -4983,16 +4983,16 @@ MonoBehaviour:
   S8: {fileID: 1666233598}
   S9: {fileID: 2097044489}
   win: 0
-  Lvl: 5
-  one: 4
-  two: 2
-  three: 3
-  four: 7
-  five: 5
-  six: 6
-  seven: 1
-  eight: 8
-  nine: 9
+  Lvl: 11
+  one: 7
+  two: 4
+  three: 6
+  four: 2
+  five: 3
+  six: 8
+  seven: 9
+  eight: 5
+  nine: 1
 --- !u!1 &1231534878
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,7 +5440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3fbc140a5fec15549b081b37e758d6fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2768b23ccb770604c93e83cad0760136, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6232,7 +6232,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6510,7 +6510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf33a86510b14f94f8f34ecafaa3cda8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95412112f390faf459e0f313aafc1193, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6770,7 +6770,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7187,7 +7187,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7313,7 +7313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e8a7e6ce4f5de404db2bf9d22fb88c4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 201abb9fd087d33468e6a9665e04bc19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8293,7 +8293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc497fe05ac5e0642ad1d3392cbb4468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d70c14dc03eb4134b98dc1a7ad775878, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8394,7 +8394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c46f0dda3574e3c42b29b360c01df3e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56a80f5071564ed43a3c6b56f9312981, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
