@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GetStars
 {
-
+    public static bool flag = true;
     public static string StarChanger(int lvl, int count)
     {
         int i;

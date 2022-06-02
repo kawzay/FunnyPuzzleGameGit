@@ -4818,9 +4818,9 @@ MonoBehaviour:
   MenuPanel: {fileID: 345456783}
   TxtLvl: {fileID: 1323525175}
   WinOrDefeatButton: {fileID: 1393485972}
-  points: 5
+  points: 6
   OneStar: 3
-  TwoStar: 1
+  TwoStar: 2
   S1: {fileID: 984841660}
   S2: {fileID: 2097200742}
   S3: {fileID: 937533957}
