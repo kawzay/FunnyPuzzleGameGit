@@ -5,6 +5,12 @@ using UnityEngine;
 public class CreateTags : MonoBehaviour
 {
 
+    private YandexSDK sdk;
+    private void Start()
+    {
+        sdk = YandexSDK.instance;
+        sdk.onRewardedAdReward += WatchStar;
+    }
     public void StartGetting()
     {
         if (PlayerPrefs.HasKey("flag"))
@@ -35,8 +41,11 @@ public class CreateTags : MonoBehaviour
             PlayerPrefs.SetInt("flag", 1);
     }
 
-    public void WatchStar()
+    public void WatchStar(string str)
     {
-        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + 1);
+        if (str == "star")
+        {
+            PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + 1);
+        }
     }
 }

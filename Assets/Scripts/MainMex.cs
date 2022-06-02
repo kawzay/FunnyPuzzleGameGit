@@ -375,7 +375,7 @@ public class MainMex : MonoBehaviour
     }
 
     private float minimum = 0f;
-    private float maximum = 1f;
+    private float maximum = 1.05f;
 
     private IEnumerator coroutine1;
     private IEnumerator coroutine2;
