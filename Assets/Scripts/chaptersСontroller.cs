@@ -32,19 +32,19 @@ public class chaptersСontroller : MonoBehaviour
 
         if (totalStars > 2)
         {
-            textRef2.text = "Ocean";
+            textRef2.text = "Океан";
             star2.SetActive(false);
             chp2.interactable = true;
         }
         if (totalStars > 4)
         {
-            textRef3.text = "Desert";
+            textRef3.text = "Пустыня";
             star3.SetActive(false);
             chp3.interactable = true;
         }
         if (totalStars > 7)
         {
-            textRef4.text = "North pole";
+            textRef4.text = "Северный полюс";
             star4.SetActive(false);
             chp4.interactable = true;
         }
