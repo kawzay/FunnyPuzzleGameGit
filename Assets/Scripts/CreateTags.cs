@@ -34,4 +34,9 @@ public class CreateTags : MonoBehaviour
         else
             PlayerPrefs.SetInt("flag", 1);
     }
+
+    public void WatchStar()
+    {
+        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + 1);
+    }
 }

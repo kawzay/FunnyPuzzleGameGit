@@ -26,23 +26,23 @@ public class chaptersСontroller : MonoBehaviour
         chp4.interactable = false;
 
 
-        textRef2.text = "4";
-        textRef3.text = "7";
-        textRef4.text = "10";
+        textRef2.text = "10";
+        textRef3.text = "20";
+        textRef4.text = "30";
 
-        if (totalStars > 2)
+        if (totalStars > 10)
         {
             textRef2.text = "Океан";
             star2.SetActive(false);
             chp2.interactable = true;
         }
-        if (totalStars > 4)
+        if (totalStars > 20)
         {
             textRef3.text = "Пустыня";
             star3.SetActive(false);
             chp3.interactable = true;
         }
-        if (totalStars > 7)
+        if (totalStars > 30)
         {
             textRef4.text = "Северный полюс";
             star4.SetActive(false);
