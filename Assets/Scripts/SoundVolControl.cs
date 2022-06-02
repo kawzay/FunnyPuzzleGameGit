@@ -5,50 +5,45 @@ using UnityEngine.UI;
 
 public class SoundVolControl : MonoBehaviour
 {
-    [Header ("Script")]
-    [SerializeField] public AudioSource audio;
-    [SerializeField] public Slider slider;
-    [SerializeField] public string SaveVolume;
-    [SerializeField] public float volume;
-    [SerializeField] public string sliderTag;
 
-    private void Awake()
+
+    public Sprite S2;
+    public Sprite S1;
+    private Sprite S3;
+    //public SpriteRenderer spriteRenderer;
+
+    public bool isOn;
+
+    private void Start()
     {
-        if(PlayerPrefs.HasKey(this.SaveVolume))
-        {
-            this.volume = PlayerPrefs.GetFloat(this.SaveVolume);
-            this.audio.volume = this.volume;
+        isOn = true;
+    }
 
-            GameObject sliderObj = GameObject.FindWithTag(this.sliderTag);
-            if (sliderObj != null)
-            {
-                this.slider = sliderObj.GetComponent<Slider>();
-                this.slider.value = this.volume;
-            }
+    public void OnOffSound()
+    {
+        if (!isOn)
+        {
+            AudioListener.volume = 0.5f;
+            isOn = true;
         }
         else
         {
-            this.volume = 0.5f;
-            PlayerPrefs.SetFloat(this.SaveVolume, this.volume);
-            this.audio.volume = this.volume;
+            AudioListener.volume = 0f;
+            isOn = false;
         }
-
-
     }
-    private void LateUpdate()
+    private int i;
+    public void OnClick()
     {
-        GameObject sliderObj = GameObject.FindWithTag(this.sliderTag);
-        if (sliderObj != null)
-        {
-            this.slider = sliderObj.GetComponent<Slider>();
-            this.volume = slider.value;
+        i++;
+        if(i%2 == 1)
+            GetComponent<Image>().sprite = S2;
+        else
+            GetComponent<Image>().sprite = S1;
 
-            if (this.audio.volume != this.volume)
-            {
-                PlayerPrefs.SetFloat(this.SaveVolume, this.volume);
-            }
-        }
 
-        this.audio.volume = this.volume;
+
+
     }
+ 
 }
