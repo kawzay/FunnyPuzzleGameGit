@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 9464165}
   - component: {fileID: 9464164}
   - component: {fileID: 9464167}
+  - component: {fileID: 9464168}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -219,6 +220,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9464168}
+        m_TargetAssemblyTypeName: CreateTags, Assembly-CSharp
+        m_MethodName: StartGetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9464165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +282,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb64f10d3a2b3b644812fb67fd5ce507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9464168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9464162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9e17af39fdbf24aa5f61cdb765baec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
 --- !u!1 &102328027
 GameObject:
   m_ObjectHideFlags: 0
