@@ -443,8 +443,8 @@ MonoBehaviour:
   startIndex: 4
   lockLevel: {fileID: 21300000, guid: 756f183012b113f489131571dd8d5857, type: 3}
   unlock: {fileID: 21300000, guid: f33d371e2887f4f4a933b5323133609e, type: 3}
-  resolvedLevel1: {fileID: 21300000, guid: 5543be4450fcec04da6cc05e8b3a4dfa, type: 3}
-  resolvedLevel2: {fileID: 21300000, guid: 4eed29d434ffe3544b1f64855730d768, type: 3}
+  resolvedLevel1: {fileID: 21300000, guid: 4eed29d434ffe3544b1f64855730d768, type: 3}
+  resolvedLevel2: {fileID: 21300000, guid: 5543be4450fcec04da6cc05e8b3a4dfa, type: 3}
   resolvedLevel3: {fileID: 21300000, guid: 51184a6f530b8964a80caeac9faf789e, type: 3}
   resolvedLevel4: {fileID: 21300000, guid: fd09721484dcabc49820d5906523bf97, type: 3}
 --- !u!4 &88419916
@@ -1075,7 +1075,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 70af40fa6829af94fa1e1a13594a8516, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
