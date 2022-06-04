@@ -15,7 +15,7 @@ public class MainMex : MonoBehaviour
     public TextMeshProUGUI PlusStar;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI MaxValue;
-    RectTransform transform;
+    new RectTransform transform;
     public GameObject Finalimg;
     public GameObject PausePanel;
     public GameObject StatusBar;
@@ -45,6 +45,7 @@ public class MainMex : MonoBehaviour
     public Image S7;
     public Image S8;
     public Image S9;
+    public Image S10;
 
     public bool win = false;
 
@@ -67,27 +68,48 @@ public class MainMex : MonoBehaviour
     private bool isSwiped;
     private bool isMobile;
 
+    Vector3 pos1;
+    Vector3 pos2;
+    Vector3 pos3;
+    Vector3 pos4;
+    Vector3 pos5;
+    Vector3 pos6;
+    Vector3 pos7;
+    Vector3 pos8;
+    Vector3 pos9;
+    Vector3 pos10;
+    Vector3 pos11;
+    Vector3 pos12;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.SetInt("TotalStar", 0);
-        //PlayerPrefs.SetInt("St1", 0);
-        //PlayerPrefs.SetInt("St2", 0);
-        //PlayerPrefs.SetInt("St3", 0);
-        //PlayerPrefs.SetInt("St4", 0);
-        //PlayerPrefs.SetInt("St5", 0);
-        //PlayerPrefs.SetInt("St6", 0);
-        //PlayerPrefs.SetInt("St7", 0);
-        //PlayerPrefs.SetInt("St8", 0);
-        //PlayerPrefs.SetInt("St9", 0);
-        //PlayerPrefs.SetInt("St10", 0);
-        //PlayerPrefs.SetInt("St11", 0);
-        //PlayerPrefs.SetInt("St12", 0);
-        //PlayerPrefs.SetInt("St13", 0);
-        //PlayerPrefs.SetInt("St14", 0);
-        //PlayerPrefs.SetInt("St15", 0);
-        //PlayerPrefs.SetInt("St16", 0);
+        pos1 = S1.rectTransform.localPosition;
+        pos1.x += S1.rectTransform.localPosition.x;
+        pos2 = S4.rectTransform.localPosition;
+        pos2.x += S4.rectTransform.localPosition.x;
+        pos3 = S7.rectTransform.localPosition;
+        pos3.x += S7.rectTransform.localPosition.x;
+        pos4 = S3.rectTransform.localPosition;
+        pos4.x += S3.rectTransform.localPosition.x;
+        pos5 = S6.rectTransform.localPosition;
+        pos5.x += S6.rectTransform.localPosition.x;
+        pos6 = S9.rectTransform.localPosition;
+        pos6.x += S9.rectTransform.localPosition.x;
+        pos7 = S1.rectTransform.localPosition;
+        pos7.y += S1.rectTransform.localPosition.y;
+        pos8 = S2.rectTransform.localPosition;
+        pos8.y += S2.rectTransform.localPosition.y;
+        pos9 = S3.rectTransform.localPosition;
+        pos9.y += S3.rectTransform.localPosition.y;
+        pos10 = S7.rectTransform.localPosition;
+        pos10.y += S7.rectTransform.localPosition.y;
+        pos11 = S8.rectTransform.localPosition;
+        pos11.y += S8.rectTransform.localPosition.y;
+        pos12 = S9.rectTransform.localPosition;
+        pos12.y += S9.rectTransform.localPosition.y;
+
 
         TotalStar.text = GetStars.GetTotal();
         Debug.Log(points);
@@ -111,8 +133,6 @@ public class MainMex : MonoBehaviour
             {     
                 isSwiped = true;
                 tapPos = Input.mousePosition;
-                Debug.Log(tapPos.x + "x");
-                Debug.Log(tapPos.y + "y");
             }
             else if (Input.GetMouseButtonUp(0))
                 ResetSwipe();
@@ -204,33 +224,33 @@ public class MainMex : MonoBehaviour
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightFirstLine(S1, S2, S3);
+                                    MoveRightFirstLine();
                                 }
                                 else
                                 {
-                                    MoveLeftFirstLine(S1, S2, S3);
+                                    MoveLeftFirstLine();
                                 }
                             }
                             else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightSecondLine(S4, S5, S6);
+                                    MoveRightSecondLine();
                                 }
                                 else
                                 {
-                                    MoveLeftSecondLine(S4, S5, S6);
+                                    MoveLeftSecondLine();
                                 }
                             }
                             else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightTrirdLine(S7, S8, S9);
+                                    MoveRightTrirdLine();
                                 }
                                 else
                                 {
-                                    MoveLeftThirdLine(S7, S8, S9);
+                                    MoveLeftThirdLine();
                                 }
                             }
                         }
@@ -242,23 +262,23 @@ public class MainMex : MonoBehaviour
                             if (tapPos.x > firWidt - (firWidt - firWidt * 0.5) && tapPos.x < firWidt + (firWidt * 1.54 - firWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpFirstLine(S1, S4, S7);
+                                    MoveUpFirstLine();
                                 else
-                                    MoveDownFirstLine(S1, S4, S7);
+                                    MoveDownFirstLine();
                             }
                             if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpSecondLine(S2, S5, S8);
+                                    MoveUpSecondLine();
                                 else
-                                    MoveDownSecondLine(S2, S5, S8);
+                                    MoveDownSecondLine();
                             }
                             if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpTrirdLine(S3, S6, S9);
+                                    MoveUpTrirdLine();
                                 else
-                                    MoveDownThirdLine(S3, S6, S9);
+                                    MoveDownThirdLine();
                             }
                         }        
                     }
@@ -276,9 +296,6 @@ public class MainMex : MonoBehaviour
                 secWidt = widt / 2f;
                 thiWidt = widt / 1.7403f;
 
-                //firHigh = high / 1.825f;
-                //secHigh = high / 2f;
-                //thiHigh = high / 2.975f;
                 swipeDelta = Vector2.zero;
 
 
@@ -302,33 +319,33 @@ public class MainMex : MonoBehaviour
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightFirstLine(S1, S2, S3);
+                                    MoveRightFirstLine();
                                 }
                                 else
                                 {
-                                    MoveLeftFirstLine(S1, S2, S3);
+                                    MoveLeftFirstLine();
                                 }
                             }
                             else if (tapPos.y > secHigh - (secHigh * 1.1912 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.85))
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightSecondLine(S4, S5, S6);
+                                    MoveRightSecondLine();
                                 }
                                 else
                                 {
-                                    MoveLeftSecondLine(S4, S5, S6);
+                                    MoveLeftSecondLine();
                                 }
                             }
                             else if (tapPos.y > thiHigh - (thiHigh * 1.2785 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.75))
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightTrirdLine(S7, S8, S9);
+                                    MoveRightTrirdLine();
                                 }
                                 else
                                 {
-                                    MoveLeftThirdLine(S7, S8, S9);
+                                    MoveLeftThirdLine();
                                 }
                             }
                         }
@@ -340,23 +357,23 @@ public class MainMex : MonoBehaviour
                             if (tapPos.x > firWidt - (firWidt - firWidt * 0.898) && tapPos.x < firWidt + (firWidt * 1.079 - firWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpFirstLine(S1, S4, S7);
+                                    MoveUpFirstLine();
                                 else
-                                    MoveDownFirstLine(S1, S4, S7);
+                                    MoveDownFirstLine();
                             }
                             if (tapPos.x > secWidt - (secWidt - secWidt * 0.9204) && tapPos.x < secWidt + (secWidt * 1.0696 - secWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpSecondLine(S2, S5, S8);
+                                    MoveUpSecondLine();
                                 else
-                                    MoveDownSecondLine(S2, S5, S8);
+                                    MoveDownSecondLine();
                             }
                             if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.941) && tapPos.x < thiWidt + (thiWidt * 1.0708 - thiWidt))
                             {
                                 if (swipeDelta.y > 0)
-                                    MoveUpTrirdLine(S3, S6, S9);
+                                    MoveUpTrirdLine();
                                 else
-                                    MoveDownThirdLine(S3, S6, S9);
+                                    MoveDownThirdLine();
                             }
                         }           
                     }
@@ -375,393 +392,382 @@ public class MainMex : MonoBehaviour
     }
 
     private float minimum = 0f;
-    private float maximum = 1f;
 
     private IEnumerator coroutine1;
-    private IEnumerator coroutine2;
-    private IEnumerator coroutine3;
-    public void MoveLeftFirstLine(Image S1, Image S2, Image S3)
+
+    public void MoveLeftFirstLine()
     {
-        DoZeroSpriteFirstLineG();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = one;
-        one = two;
-        two = three;
-        three = g;
-        CheckWin();
-        coroutine1 = Enum1(minimum, 0.008f);
+        coroutine1 = Enum1(3, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum2(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum3(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveRightFirstLine(Image S1, Image S2, Image S3)
+    public void MoveRightFirstLine()
     {
-        DoZeroSpriteFirstLineG();
-
-        var g = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = g;
-
-        int q = three;
-        three = two;
-        two = one;
-        one = q;
-        CheckWin();
-        coroutine1 = Enum3(minimum, 0.008f);
+        coroutine1 = Enum1(1, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum2(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum1(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveLeftSecondLine(Image S1, Image S2, Image S3)
+
+    public void MoveLeftSecondLine()
     {
-        DoZeroSpriteSecondLineG();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = four;
-        four = five;
-        five = six;
-        six = g;
-        CheckWin();
-        coroutine1 = Enum4(minimum, 0.008f);
+        coroutine1 = Enum2(3, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum5(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum6(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveRightSecondLine(Image S1, Image S2, Image S3)
+    public void MoveRightSecondLine()
     {
-        DoZeroSpriteSecondLineG();
-
-        var g = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = g;
-
-        int q = six;
-        six = five;
-        five = four;
-        four = q;
-        CheckWin();
-        coroutine1 = Enum6(minimum, 0.008f);
+        coroutine1 = Enum2(1, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum5(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum4(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveLeftThirdLine(Image S1, Image S2, Image S3)
+    public void MoveLeftThirdLine()
     {
-        DoZeroSpriteThirdLineG();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = seven;
-        seven = eight;
-        eight = nine;
-        nine = g;
-        CheckWin();
-        coroutine1 = Enum7(minimum, 0.008f);
+        coroutine1 = Enum3(3, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum8(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum9(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveRightTrirdLine(Image S1, Image S2, Image S3)
+    public void MoveRightTrirdLine()
     {
-        DoZeroSpriteThirdLineG();
-
-        var g = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = g;
-
-        int q = nine;
-        nine = eight;
-        eight = seven;
-        seven = q;
-        CheckWin();
-        coroutine1 = Enum9(minimum, 0.008f);
+        coroutine1 = Enum3(1, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum8(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum7(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveUpFirstLine(Image S1, Image S2, Image S3)
+    public void MoveUpFirstLine()
     {
-        DoZeroSpriteFirstLineV();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = one;
-        one = four;
-        four = seven;
-        seven = g;
-        CheckWin();
-        coroutine1 = Enum1(minimum, 0.008f);
+        coroutine1 = Enum4(4, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum4(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum7(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveDownFirstLine(Image S1, Image S2, Image S3)
+    public void MoveDownFirstLine()
     {
-        DoZeroSpriteFirstLineV();
-
-        var q = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = q;
-
-        int g = seven;
-        seven = four;
-        four = one;
-        one = g;
-        CheckWin();
-        coroutine1 = Enum7(minimum, 0.008f);
+        coroutine1 = Enum4(2, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum4(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum1(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveUpSecondLine(Image S1, Image S2, Image S3)
+    public void MoveUpSecondLine()
     {
-        DoZeroSpriteSecondLineV();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = two;
-        two = five;
-        five = eight;
-        eight = g;
-        CheckWin();
-        coroutine1 = Enum2(minimum, 0.008f);
+        coroutine1 = Enum5(4, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum5(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum8(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveDownSecondLine(Image S1, Image S2, Image S3)
+    public void MoveDownSecondLine()
     {
-        DoZeroSpriteSecondLineV();
-
-        var g = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = g;
-
-        int q = eight;
-        eight = five;
-        five = two;
-        two = q;
-        CheckWin();
-        coroutine1 = Enum8(minimum, 0.008f);
+        coroutine1 = Enum5(2, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum5(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum2(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
 
-    public void MoveUpTrirdLine(Image S1, Image S2, Image S3)
+    public void MoveUpTrirdLine()
     {
-        DoZeroSpriteThirdLineV();
-
-        var q = S1.sprite;
-        S1.sprite = S2.sprite;
-        S2.sprite = S3.sprite;
-        S3.sprite = q;
-
-        int g = three;
-        three = six;
-        six = nine;
-        nine = g;
-        CheckWin();
-        coroutine1 = Enum3(minimum, 0.008f);
+        coroutine1 = Enum6(4, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum6(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum9(minimum, 0.012f);
-        StartCoroutine(coroutine3);
     }
-    public void MoveDownThirdLine(Image S1, Image S2, Image S3)
+    public void MoveDownThirdLine()
     {
-        DoZeroSpriteThirdLineV();
-
-        var q = S3.sprite;
-        S3.sprite = S2.sprite;
-        S2.sprite = S1.sprite;
-        S1.sprite = q;
-
-        int g = nine;
-        nine = six;
-        six = three;
-        three = g;
-        CheckWin();
-        coroutine1 = Enum9(minimum, 0.008f);
+        coroutine1 = Enum6(2, 0.005f);
         StartCoroutine(coroutine1);
-        coroutine2 = Enum6(minimum, 0.010f);
-        StartCoroutine(coroutine2);
-        coroutine3 = Enum3(minimum, 0.012f);
-        StartCoroutine(coroutine3);
-    }
-
-    public void DoZeroSpriteFirstLineG()
-    {
-        S1.transform.localScale = Vector3.zero;
-        S2.transform.localScale = Vector3.zero;
-        S3.transform.localScale = Vector3.zero;
-    }
-
-    public void DoZeroSpriteSecondLineG()
-    {
-        S4.transform.localScale = Vector3.zero;
-        S5.transform.localScale = Vector3.zero;
-        S6.transform.localScale = Vector3.zero;
-    }
-
-    public void DoZeroSpriteThirdLineG()
-    {
-        S7.transform.localScale = Vector3.zero;
-        S8.transform.localScale = Vector3.zero;
-        S9.transform.localScale = Vector3.zero;
-    }
-
-    public void DoZeroSpriteFirstLineV()
-    {
-        S1.transform.localScale = Vector3.zero;
-        S4.transform.localScale = Vector3.zero;
-        S7.transform.localScale = Vector3.zero;
-    }
-
-    public void DoZeroSpriteSecondLineV()
-    {
-        S2.transform.localScale = Vector3.zero;
-        S5.transform.localScale = Vector3.zero;
-        S8.transform.localScale = Vector3.zero;
-    }
-
-    public void DoZeroSpriteThirdLineV()
-    {
-        S3.transform.localScale = Vector3.zero;
-        S6.transform.localScale = Vector3.zero;
-        S9.transform.localScale = Vector3.zero;
     }
 
 
-    IEnumerator Enum1(float minimum, float f)
+    IEnumerator Enum1(int flag, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        if (flag == 1)
         {
-            yield return new WaitForSeconds(f);
-            S1.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S3.sprite;
+            S10.rectTransform.localPosition = pos1;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x + 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S1.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S1.transform.localPosition.x + 2.65f, S1.transform.localPosition.y, S1.transform.localPosition.z);
+                S2.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S2.transform.localPosition.x + 2.65f, S2.transform.localPosition.y, S2.transform.localPosition.z);
+                S3.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S3.transform.localPosition.x + 2.65f, S3.transform.localPosition.y, S3.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S3.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            RF();
+        }
+        else if (flag == 3)
+        {
+            S10.sprite = S1.sprite;
+            S10.rectTransform.localPosition = pos4;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x - 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S1.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S1.transform.localPosition.x - 2.65f, S1.transform.localPosition.y, S1.transform.localPosition.z);
+                S2.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S2.transform.localPosition.x - 2.65f, S2.transform.localPosition.y, S2.transform.localPosition.z);
+                S3.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S3.transform.localPosition.x - 2.65f, S3.transform.localPosition.y, S3.transform.localPosition.z);
+                S1.GetComponent<Image>().color = new Color(1, 1, 1, a: min -= 0.05f);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, a: max += 0.05f);
+                yield return new WaitForSeconds(f);
+            }
+            LF();
         }
     }
-    IEnumerator Enum2(float minimum, float f)
+    IEnumerator Enum2(int flag, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        if (flag == 1)
         {
-            yield return new WaitForSeconds(f);
-            S2.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S6.sprite;
+            S10.rectTransform.localPosition = pos2;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x + 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S4.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S4.transform.localPosition.x + 2.65f, S4.transform.localPosition.y, S4.transform.localPosition.z);
+                S5.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S5.transform.localPosition.x + 2.65f, S5.transform.localPosition.y, S5.transform.localPosition.z);
+                S6.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S6.transform.localPosition.x + 2.65f, S6.transform.localPosition.y, S6.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S6.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            RS();
+        }
+        else if (flag == 3)
+        {
+            S10.sprite = S4.sprite;
+            S10.rectTransform.localPosition = pos5;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x - 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S4.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S4.transform.localPosition.x - 2.65f, S4.transform.localPosition.y, S4.transform.localPosition.z);
+                S5.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S5.transform.localPosition.x - 2.65f, S5.transform.localPosition.y, S5.transform.localPosition.z);
+                S6.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S6.transform.localPosition.x - 2.65f, S6.transform.localPosition.y, S6.transform.localPosition.z);
+                S4.GetComponent<Image>().color = new Color(1, 1, 1, a: min -= 0.05f);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, a: max += 0.05f);
+                yield return new WaitForSeconds(f);
+            }
+            LS();
         }
     }
-    IEnumerator Enum3(float minimum, float f)
+    IEnumerator Enum3(int flag, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        if (flag == 1)
         {
-            yield return new WaitForSeconds(f);
-            S3.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S9.sprite;
+            S10.rectTransform.localPosition = pos3;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x + 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S7.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S7.transform.localPosition.x + 2.65f, S7.transform.localPosition.y, S7.transform.localPosition.z);
+                S8.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S8.transform.localPosition.x + 2.65f, S8.transform.localPosition.y, S8.transform.localPosition.z);
+                S9.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S9.transform.localPosition.x + 2.65f, S9.transform.localPosition.y, S9.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S9.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            RT();
+        }
+        else if (flag == 3)
+        {
+            S10.sprite = S7.sprite;
+            S10.rectTransform.localPosition = pos6;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x - 2.65f, S10.transform.localPosition.y, S10.transform.localPosition.z);
+                S7.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S7.transform.localPosition.x - 2.65f, S7.transform.localPosition.y, S7.transform.localPosition.z);
+                S8.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S8.transform.localPosition.x - 2.65f, S8.transform.localPosition.y, S8.transform.localPosition.z);
+                S9.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S9.transform.localPosition.x - 2.65f, S9.transform.localPosition.y, S9.transform.localPosition.z);
+                S7.GetComponent<Image>().color = new Color(1, 1, 1, a: min -= 0.05f);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, a: max += 0.05f);
+                yield return new WaitForSeconds(f);
+            }
+            LT();
         }
     }
 
-    IEnumerator Enum4(float minimum, float f)
+    IEnumerator Enum4(int flag, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        if (flag == 2)
         {
-            yield return new WaitForSeconds(f);
-            S4.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S7.sprite;
+            S10.rectTransform.localPosition = pos7;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y - 2.65f, S10.transform.localPosition.z);
+                S1.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S1.transform.localPosition.x, S1.transform.localPosition.y - 2.65f, S1.transform.localPosition.z);
+                S4.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S4.transform.localPosition.x, S4.transform.localPosition.y - 2.65f, S4.transform.localPosition.z);
+                S7.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S7.transform.localPosition.x, S7.transform.localPosition.y - 2.65f, S7.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S7.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            DF();
+        }
+        else if (flag == 4)
+        {
+            S10.sprite = S1.sprite;
+            S10.rectTransform.localPosition = pos10;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+               S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y + 2.65f, S10.transform.localPosition.z);
+                S1.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S1.transform.localPosition.x, S1.transform.localPosition.y + 2.65f, S1.transform.localPosition.z);
+                S4.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S4.transform.localPosition.x, S4.transform.localPosition.y + 2.65f, S4.transform.localPosition.z);
+                S7.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S7.transform.localPosition.x, S7.transform.localPosition.y + 2.65f, S7.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S1.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            UF();
+        }
+    }
+    IEnumerator Enum5(int flag, float f)
+    {
+        if (flag == 2)
+        {
+            S10.sprite = S8.sprite;
+            S10.rectTransform.localPosition = pos8;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y - 2.65f, S10.transform.localPosition.z);
+                S2.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S2.transform.localPosition.x, S2.transform.localPosition.y - 2.65f, S2.transform.localPosition.z);
+                S5.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S5.transform.localPosition.x, S5.transform.localPosition.y - 2.65f, S5.transform.localPosition.z);
+                S8.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S8.transform.localPosition.x, S8.transform.localPosition.y - 2.65f, S8.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S8.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            DS();
+        }
+        else if (flag == 4)
+        {
+            S10.sprite = S2.sprite;
+            S10.rectTransform.localPosition = pos11;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                     new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y + 2.65f, S10.transform.localPosition.z);
+                S2.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S2.transform.localPosition.x, S2.transform.localPosition.y + 2.65f, S2.transform.localPosition.z);
+                S5.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S5.transform.localPosition.x, S5.transform.localPosition.y + 2.65f, S5.transform.localPosition.z);
+                S8.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S8.transform.localPosition.x, S8.transform.localPosition.y + 2.65f, S8.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S2.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            US();
         }
     }
 
-    IEnumerator Enum5(float minimum, float f)
+    IEnumerator Enum6(int flag, float f)
     {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        if (flag == 2)
         {
-            yield return new WaitForSeconds(f);
-            S5.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S9.sprite;
+            S10.rectTransform.localPosition = pos9;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y - 2.65f, S10.transform.localPosition.z);
+                S3.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S3.transform.localPosition.x, S3.transform.localPosition.y - 2.65f, S3.transform.localPosition.z);
+                S6.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S6.transform.localPosition.x, S6.transform.localPosition.y - 2.65f, S6.transform.localPosition.z);
+                S9.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S9.transform.localPosition.x, S9.transform.localPosition.y - 2.65f, S9.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S9.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            DT();
         }
-    }
-
-    IEnumerator Enum6(float minimum, float f)
-    {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
+        else if (flag == 4)
         {
-            yield return new WaitForSeconds(f);
-            S6.transform.localScale = new Vector3(minimum, minimum, minimum);
-        }
-    }
-
-    IEnumerator Enum7(float minimum, float f)
-    {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
-        {
-            yield return new WaitForSeconds(f);
-            S7.transform.localScale = new Vector3(minimum, minimum, minimum);
-        }
-    }
-
-    IEnumerator Enum8(float minimum, float f)
-    {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
-        {
-            yield return new WaitForSeconds(f);
-            S8.transform.localScale = new Vector3(minimum, minimum, minimum);
-        }
-    }
-
-    IEnumerator Enum9(float minimum, float f)
-    {
-        for (minimum = 0f; minimum < maximum; minimum = minimum + 0.05f)
-        {
-            yield return new WaitForSeconds(f);
-            S9.transform.localScale = new Vector3(minimum, minimum, minimum);
+            S10.sprite = S3.sprite;
+            S10.rectTransform.localPosition = pos12;
+            var min = 1f;
+            var max = 0f;
+            for (minimum = 0f; minimum < 106f; minimum += 2.65f)
+            {
+                S10.GetComponent<RectTransform>().localPosition =
+                     new Vector3(S10.transform.localPosition.x, S10.transform.localPosition.y + 2.65f, S10.transform.localPosition.z);
+                S3.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S3.transform.localPosition.x, S3.transform.localPosition.y + 2.65f, S3.transform.localPosition.z);
+                S6.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S6.transform.localPosition.x, S6.transform.localPosition.y + 2.65f, S6.transform.localPosition.z);
+                S9.GetComponent<RectTransform>().localPosition =
+                    new Vector3(S9.transform.localPosition.x, S9.transform.localPosition.y + 2.65f, S9.transform.localPosition.z);
+                min -= 0.05f;
+                max += 0.05f;
+                S3.GetComponent<Image>().color = new Color(1, 1, 1, min);
+                S10.GetComponent<Image>().color = new Color(1, 1, 1, max);
+                yield return new WaitForSeconds(f);
+            }
+            UT();
         }
     }
 
@@ -833,7 +839,6 @@ public class MainMex : MonoBehaviour
             PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
             TotalStar.text = GetStars.GetTotal();
             TotalStar2.text = TotalStar.text;
-            //Shadow.SetActive(true);
         }
     }
 
@@ -846,5 +851,241 @@ public class MainMex : MonoBehaviour
         else if (MenuPanel.activeInHierarchy)
             return false;
         return true;
+    }
+
+    public void RF()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S3.color = new Color(1, 1, 1, 1);
+        S3.rectTransform.localPosition = S2.rectTransform.localPosition;
+        S2.rectTransform.localPosition = S1.rectTransform.localPosition;
+        S1.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var g = S3.sprite;
+        S3.sprite = S2.sprite;
+        S2.sprite = S1.sprite;
+        S1.sprite = g;
+
+        int q = three;
+        three = two;
+        two = one;
+        one = q;
+        CheckWin();
+    }
+
+    public void LF()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S1.color = new Color(1, 1, 1, 1);
+        S1.rectTransform.localPosition = S2.rectTransform.localPosition;
+        S2.rectTransform.localPosition = S3.rectTransform.localPosition;
+        S3.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S1.sprite;
+        S1.sprite = S2.sprite;
+        S2.sprite = S3.sprite;
+        S3.sprite = q;
+
+        int g = one;
+        one = two;
+        two = three;
+        three = g;
+        CheckWin();
+    }
+
+    public void LS()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S4.color = new Color(1, 1, 1, 1);
+        S4.rectTransform.localPosition = S5.rectTransform.localPosition;
+        S5.rectTransform.localPosition = S6.rectTransform.localPosition;
+        S6.rectTransform.localPosition = S10.rectTransform.localPosition;
+        var q = S4.sprite;
+        S4.sprite = S5.sprite;
+        S5.sprite = S6.sprite;
+        S6.sprite = q;
+
+        int g = four;
+        four = five;
+        five = six;
+        six = g;
+        CheckWin();
+    }
+
+    public void RS()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S6.color = new Color(1, 1, 1, 1);
+        S6.rectTransform.localPosition = S5.rectTransform.localPosition;
+        S5.rectTransform.localPosition = S4.rectTransform.localPosition;
+        S4.rectTransform.localPosition = S10.rectTransform.localPosition;
+        var g = S6.sprite;
+        S6.sprite = S5.sprite;
+        S5.sprite = S4.sprite;
+        S4.sprite = g;
+
+        int q = six;
+        six = five;
+        five = four;
+        four = q;
+        CheckWin();
+    }
+
+    public void LT()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S7.color = new Color(1, 1, 1, 1);
+        S7.rectTransform.localPosition = S8.rectTransform.localPosition;
+        S8.rectTransform.localPosition = S9.rectTransform.localPosition;
+        S9.rectTransform.localPosition = S10.rectTransform.localPosition;
+        var q = S7.sprite;
+        S7.sprite = S8.sprite;
+        S8.sprite = S9.sprite;
+        S9.sprite = q;
+
+        int g = seven;
+        seven = eight;
+        eight = nine;
+        nine = g;
+        CheckWin();
+    }
+
+    public void RT()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S9.color = new Color(1, 1, 1, 1);
+        S9.rectTransform.localPosition = S8.rectTransform.localPosition;
+        S8.rectTransform.localPosition = S7.rectTransform.localPosition;
+        S7.rectTransform.localPosition = S10.rectTransform.localPosition;
+        var g = S9.sprite;
+        S9.sprite = S8.sprite;
+        S8.sprite = S7.sprite;
+        S7.sprite = g;
+
+        int q = nine;
+        nine = eight;
+        eight = seven;
+        seven = q;
+        CheckWin();
+    }
+
+    public void UF()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S1.color = new Color(1, 1, 1, 1);
+        S1.rectTransform.localPosition = S4.rectTransform.localPosition;
+        S4.rectTransform.localPosition = S7.rectTransform.localPosition;
+        S7.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S1.sprite;
+        S1.sprite = S4.sprite;
+        S4.sprite = S7.sprite;
+        S7.sprite = q;
+
+        int g = one;
+        one = four;
+        four = seven;
+        seven = g;
+        CheckWin();
+    }
+
+    public void DF()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S7.color = new Color(1, 1, 1, 1);
+        S7.rectTransform.localPosition = S4.rectTransform.localPosition;
+        S4.rectTransform.localPosition = S1.rectTransform.localPosition;
+        S1.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S7.sprite;
+        S7.sprite = S4.sprite;
+        S4.sprite = S1.sprite;
+        S1.sprite = q;
+
+        int g = seven;
+        seven = four;
+        four = one;
+        one = g;
+        CheckWin();
+    }
+
+    public void US()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S2.color = new Color(1, 1, 1, 1);
+        S2.rectTransform.localPosition = S5.rectTransform.localPosition;
+        S5.rectTransform.localPosition = S8.rectTransform.localPosition;
+        S8.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S2.sprite;
+        S2.sprite = S5.sprite;
+        S5.sprite = S8.sprite;
+        S8.sprite = q;
+
+        int g = two;
+        two = five;
+        five = eight;
+        eight = g;
+        CheckWin();
+    }
+
+    public void DS()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S8.color = new Color(1, 1, 1, 1);
+        S8.rectTransform.localPosition = S5.rectTransform.localPosition;
+        S5.rectTransform.localPosition = S2.rectTransform.localPosition;
+        S2.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var g = S8.sprite;
+        S8.sprite = S5.sprite;
+        S5.sprite = S2.sprite;
+        S2.sprite = g;
+
+        int q = eight;
+        eight = five;
+        five = two;
+        two = q;
+        CheckWin();
+    }
+
+    public void UT()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S3.color = new Color(1, 1, 1, 1);
+        S3.rectTransform.localPosition = S6.rectTransform.localPosition;
+        S6.rectTransform.localPosition = S9.rectTransform.localPosition;
+        S9.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S3.sprite;
+        S3.sprite = S6.sprite;
+        S6.sprite = S9.sprite;
+        S9.sprite = q;
+
+        int g = three;
+        three = six;
+        six = nine;
+        nine = g;
+        CheckWin();
+    }
+
+    public void DT()
+    {
+        S10.color = new Color(1, 1, 1, 0);
+        S9.color = new Color(1, 1, 1, 1);
+        S9.rectTransform.localPosition = S6.rectTransform.localPosition;
+        S6.rectTransform.localPosition = S3.rectTransform.localPosition;
+        S3.rectTransform.localPosition = S10.rectTransform.localPosition;
+
+        var q = S9.sprite;
+        S9.sprite = S6.sprite;
+        S6.sprite = S3.sprite;
+        S3.sprite = q;
+
+        int g = nine;
+        nine = six;
+        six = three;
+        three = g;
+        CheckWin();
     }
 }

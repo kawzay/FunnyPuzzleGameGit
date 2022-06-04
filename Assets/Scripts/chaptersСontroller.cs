@@ -28,7 +28,7 @@ public class chaptersÑontroller : MonoBehaviour
 
         textRef2.text = "10";
         textRef3.text = "20";
-        textRef4.text = "30";
+        textRef4.text = "30     ";
 
         if (totalStars > 10)
         {
