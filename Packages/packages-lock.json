@@ -1,17 +1,92 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "com.unity.2d.animation": {
+      "version": "8.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.2d.common": "7.0.0",
+        "com.unity.2d.sprite": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.2d.common": {
+      "version": "7.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.2d.sprite": "1.0.0",
+        "com.unity.mathematics": "1.1.0",
+        "com.unity.modules.uielements": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.burst": "1.6.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.2d.pixel-perfect": {
+      "version": "5.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.2d.psdimporter": {
+      "version": "7.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.2d.animation": "8.0.0",
+        "com.unity.2d.common": "7.0.0",
+        "com.unity.2d.sprite": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
       "source": "builtin",
       "dependencies": {}
     },
+<<<<<<< HEAD
+=======
+    "com.unity.2d.spriteshape": {
+      "version": "8.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.1.0",
+        "com.unity.2d.common": "7.0.0",
+        "com.unity.modules.physics2d": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.2d.tilemap": {
       "version": "1.0.0",
       "depth": 0,
       "source": "builtin",
       "dependencies": {}
     },
+<<<<<<< HEAD
+=======
+    "com.unity.2d.tilemap.extras": {
+      "version": "3.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.tilemap": "1.0.0",
+        "com.unity.2d.tilemap": "1.0.0",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.ads": {
       "version": "4.1.0",
       "depth": 0,
@@ -31,6 +106,18 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.burst": {
+      "version": "1.7.1",
+      "depth": 3,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.collab-proxy": {
       "version": "1.15.17",
       "depth": 0,
@@ -47,6 +134,23 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.feature.2d": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.2d.animation": "8.0.1",
+        "com.unity.2d.pixel-perfect": "5.0.1",
+        "com.unity.2d.psdimporter": "7.0.0",
+        "com.unity.2d.sprite": "1.0.0",
+        "com.unity.2d.spriteshape": "8.0.0",
+        "com.unity.2d.tilemap": "1.0.0",
+        "com.unity.2d.tilemap.extras": "3.0.2"
+      }
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.ide.rider": {
       "version": "3.0.14",
       "depth": 0,
@@ -72,6 +176,23 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.mathematics": {
+      "version": "1.2.6",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.0.2",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> remotes/origin/Igor4.1
     "com.unity.purchasing": {
       "version": "4.1.4",
       "depth": 0,
@@ -87,7 +208,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.analytics": {
-      "version": "1.0.4",
+      "version": "1.0.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -96,11 +217,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
-      "version": "1.0.1",
+      "version": "1.4.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.unitywebrequest": "1.0.0"
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.modules.androidjni": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
