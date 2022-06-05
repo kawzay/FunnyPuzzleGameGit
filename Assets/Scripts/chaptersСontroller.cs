@@ -30,19 +30,19 @@ public class chaptersСontroller : MonoBehaviour
         textRef3.text = "20";
         textRef4.text = "30";
 
-        if (totalStars > 10)
+        if (totalStars >= 10)
         {
             textRef2.text = "Океан";
             star2.SetActive(false);
             chp2.interactable = true;
         }
-        if (totalStars > 20)
+        if (totalStars >= 20)
         {
             textRef3.text = "Пустыня";
             star3.SetActive(false);
             chp3.interactable = true;
         }
-        if (totalStars > 30)
+        if (totalStars >= 30)
         {
             textRef4.text = "Северный полюс";
             star4.SetActive(false);
