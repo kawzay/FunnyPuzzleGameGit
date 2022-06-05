@@ -55,13 +55,5 @@ public class chapters—ontroller : MonoBehaviour
     {
         SceneManager.LoadScene(level);
     }
-
-    public void Reset()
-    {
-        //lvl2.interactable = false;
-        //lvl3.interactable = false;
-       // lvl4.interactable = false;
-       // PlayerPrefs.DeleteAll();
-    }
 }
 
