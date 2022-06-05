@@ -63,6 +63,7 @@ public class MainMex : MonoBehaviour
     private Vector2 tapPos;
     private Vector2 swipeDelta;
     private float deadZone;
+    public bool isPromptShow = false;
 
     private bool isSwiped;
     private bool isMobile;
@@ -167,7 +168,8 @@ public class MainMex : MonoBehaviour
         else
             deadZone = 450;
 
-        if (CheckLock())
+
+        if (CheckLock() && !isPromptShow)
         {
             if (high > widt)
             {
