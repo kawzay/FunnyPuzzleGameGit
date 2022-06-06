@@ -30,19 +30,19 @@ public class chaptersÑontroller : MonoBehaviour
         textRef3.text = "20";
         textRef4.text = "30";
 
-        if (totalStars > 10)
+        if (totalStars >= 10)
         {
             textRef2.text = "Îêåàí";
             star2.SetActive(false);
             chp2.interactable = true;
         }
-        if (totalStars > 20)
+        if (totalStars >= 20)
         {
             textRef3.text = "Ïóñòûíÿ";
             star3.SetActive(false);
             chp3.interactable = true;
         }
-        if (totalStars > 30)
+        if (totalStars >= 30)
         {
             textRef4.text = "Ñåâåğíûé ïîëşñ";
             star4.SetActive(false);
@@ -54,14 +54,6 @@ public class chaptersÑontroller : MonoBehaviour
     public void LoadTo(int level)
     {
         SceneManager.LoadScene(level);
-    }
-
-    public void Reset()
-    {
-        //lvl2.interactable = false;
-        //lvl3.interactable = false;
-       // lvl4.interactable = false;
-       // PlayerPrefs.DeleteAll();
     }
 }
 
