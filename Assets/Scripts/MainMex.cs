@@ -190,7 +190,7 @@ public class MainMex : MonoBehaviour
             deadZone = 450;
 
 
-        if ((CheckLock() && !isPromptShow && !isAnimation) || Cont)
+        if ((CheckLock() && !isPromptShow && !isAnimation) || (Cont && !isAnimation))
         {
             if (high > widt)
             {

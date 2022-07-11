@@ -9,7 +9,7 @@ public class CreateTags : MonoBehaviour
     private void Start()
     {
        sdk = YandexSDK.instance;
-       sdk.onRewardedAdReward += WatchStar;
+       sdk.onRewardedAdReward += Reward;
     }
     public void StartGetting()
     {
@@ -41,9 +41,9 @@ public class CreateTags : MonoBehaviour
             PlayerPrefs.SetInt("flag", 1);
     }
 
-    public void WatchStar(string str)
+    public void Reward(string str)
     {
-        if (str == "star")
+        if (str == "coin")
         {
            PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + 1);
         }

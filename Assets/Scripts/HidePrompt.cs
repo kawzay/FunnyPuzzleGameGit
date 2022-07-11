@@ -9,18 +9,14 @@ public class HidePrompt : MonoBehaviour
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("promt"))
-        {
             Prompt.SetActive(true);
             Canvas.GetComponent<MainMex>().isPromptShow = true;
-        }
     }
 
     public void Hide()
     {
         Prompt.SetActive(false);
         Canvas.GetComponent<MainMex>().isPromptShow = false;
-        PlayerPrefs.SetInt("promt", 1);
     }
 
 }
