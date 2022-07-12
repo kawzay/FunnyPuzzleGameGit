@@ -321,6 +321,9 @@ public class MainMex : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightFirstLine();
+                                    //await Task.Delay(1000);
+                                    if (true) MoveRightSecondLine();
+                                    //добавил 2
                                 }
                                 else
                                 {
@@ -332,6 +335,8 @@ public class MainMex : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightSecondLine();
+                                    //MoveRightFirstLine();
+                                    //добавил 2
                                 }
                                 else
                                 {
