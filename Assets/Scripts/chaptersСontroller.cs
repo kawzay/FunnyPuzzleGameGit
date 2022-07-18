@@ -42,7 +42,7 @@ public class chaptersÑontroller : MonoBehaviour
             star3.SetActive(false);
             chp3.interactable = true;
         }
-        if (totalStars >= 20)
+        if (totalStars >= 30)
         {
             textRef4.text = "Ñåâåğíûé ïîëşñ";
             star4.SetActive(false);

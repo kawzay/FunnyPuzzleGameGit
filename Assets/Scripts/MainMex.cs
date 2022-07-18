@@ -190,7 +190,7 @@ public class MainMex : MonoBehaviour
             deadZone = 450;
 
 
-        if ((CheckLock() && !isPromptShow && !isAnimation) || Cont)
+        if ((CheckLock() && !isPromptShow && !isAnimation) || (Cont && !isAnimation))
         {
             if (high > widt)
             {
@@ -321,9 +321,6 @@ public class MainMex : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightFirstLine();
-                                    //await Task.Delay(1000);
-                                    if (true) MoveRightSecondLine();
-                                    //добавил 2
                                 }
                                 else
                                 {
@@ -335,8 +332,6 @@ public class MainMex : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightSecondLine();
-                                    //MoveRightFirstLine();
-                                    //добавил 2
                                 }
                                 else
                                 {
