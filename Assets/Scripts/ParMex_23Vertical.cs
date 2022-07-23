@@ -10,6 +10,7 @@ public class ParMex2 : MonoBehaviour
     public GameObject CircleLeft;
     public GameObject CircleRight;
     public GameObject Home;
+    public GameObject Commers;
     public TextMeshProUGUI TotalStar;
     public TextMeshProUGUI TotalStar2;
     public TextMeshProUGUI PlusStar;
@@ -121,6 +122,7 @@ public class ParMex2 : MonoBehaviour
         WinOrDefeatButton.gameObject.SetActive(false);
         Finalimg.SetActive(false);
         PausePanel.SetActive(false);
+        Commers.SetActive(true);
         Text.text = points.ToString();
         MaxValue.text = points.ToString();
         transform = StatusBack.GetComponent<RectTransform>();
@@ -861,9 +863,9 @@ public class ParMex2 : MonoBehaviour
             WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("grayBut");
             WinOrDefeatButton.gameObject.SetActive(true);
 
-            stars--;
-            GameObject.Find("Star").GetComponent<Image>().color = Color;
-            LastStar.GetComponent<Image>().color = Color;
+            //stars--;
+            //GameObject.Find("Star").GetComponent<Image>().color = Color;
+            //LastStar.GetComponent<Image>().color = Color;
             CircleLeft.SetActive(false);
             Play.SetActive(false);
             PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
@@ -896,6 +898,7 @@ public class ParMex2 : MonoBehaviour
             {
                 CircleRight.SetActive(false);
                 CircleLeft.SetActive(false);
+                Commers.SetActive(false);
             }
             if (stars == 2 || stars == 1)
             {

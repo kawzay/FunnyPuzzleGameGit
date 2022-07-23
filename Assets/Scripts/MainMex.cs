@@ -10,6 +10,7 @@ public class MainMex : MonoBehaviour
     public GameObject CircleLeft;
     public GameObject CircleRight;
     public GameObject Home;
+    public GameObject Commers;
     public TextMeshProUGUI TotalStar;
     public TextMeshProUGUI TotalStar2;
     public TextMeshProUGUI PlusStar;
@@ -120,6 +121,7 @@ public class MainMex : MonoBehaviour
         WinOrDefeatButton.gameObject.SetActive(false);
         Finalimg.SetActive(false);
         PausePanel.SetActive(false);
+        Commers.SetActive(true);
         Text.text = points.ToString();
         MaxValue.text = points.ToString();
         transform = StatusBack.GetComponent<RectTransform>();
@@ -826,9 +828,9 @@ public class MainMex : MonoBehaviour
             WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("grayBut");
             WinOrDefeatButton.gameObject.SetActive(true);
 
-            stars--;
-            GameObject.Find("Star").GetComponent<Image>().color = Color;
-            LastStar.GetComponent<Image>().color = Color;
+            //stars--;
+            //GameObject.Find("Star").GetComponent<Image>().color = Color;
+            //LastStar.GetComponent<Image>().color = Color;
             CircleLeft.SetActive(false);
             Play.SetActive(false);
             PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
@@ -861,6 +863,7 @@ public class MainMex : MonoBehaviour
             {
                 CircleRight.SetActive(false);
                 CircleLeft.SetActive(false);
+                Commers.SetActive(false);
             }
             if (stars == 2 || stars == 1)
             {
@@ -1119,5 +1122,10 @@ public class MainMex : MonoBehaviour
         six = three;
         three = g;
         CheckWin();
+    }
+
+    public void Hide()
+    {
+        Commers.SetActive(false);
     }
 }
