@@ -355,7 +355,7 @@ public class GetStars
             PlayerPrefs.SetInt("St15", count);
             return count.ToString();
         }
-        else
+        else if (lvl == 16)
         {
             if (PlayerPrefs.HasKey("St16"))
             {
@@ -376,6 +376,190 @@ public class GetStars
                 return "0";
             }
             PlayerPrefs.SetInt("St16", count);
+            return count.ToString();
+        }
+        else if (lvl == 17)
+        {
+            if (PlayerPrefs.HasKey("St17"))
+            {
+                i = count - PlayerPrefs.GetInt("St17");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St17", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St17", count);
+            return count.ToString();
+        }
+        else if (lvl == 18)
+        {
+            if (PlayerPrefs.HasKey("St18"))
+            {
+                i = count - PlayerPrefs.GetInt("St18");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St18", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St18", count);
+            return count.ToString();
+        }
+        else if (lvl == 19)
+        {
+            if (PlayerPrefs.HasKey("St19"))
+            {
+                i = count - PlayerPrefs.GetInt("St19");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St19", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St19", count);
+            return count.ToString();
+        }
+        else if (lvl == 20)
+        {
+            if (PlayerPrefs.HasKey("St20"))
+            {
+                i = count - PlayerPrefs.GetInt("St20");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St20", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St20", count);
+            return count.ToString();
+        }
+        else if (lvl == 21)
+        {
+            if (PlayerPrefs.HasKey("St21"))
+            {
+                i = count - PlayerPrefs.GetInt("St21");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St21", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St21", count);
+            return count.ToString();
+        }
+        else if (lvl == 22)
+        {
+            if (PlayerPrefs.HasKey("St22"))
+            {
+                i = count - PlayerPrefs.GetInt("St22");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St22", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St22", count);
+            return count.ToString();
+        }
+        else if (lvl == 23)
+        {
+            if (PlayerPrefs.HasKey("St23"))
+            {
+                i = count - PlayerPrefs.GetInt("St23");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St23", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St23", count);
+            return count.ToString();
+        }
+        else
+        {
+            if (PlayerPrefs.HasKey("St24"))
+            {
+                i = count - PlayerPrefs.GetInt("St24");
+                if (i > 0)
+                {
+                    PlayerPrefs.SetInt("St24", count);
+                    if (PlayerPrefs.HasKey("TotalStar"))
+                    {
+                        PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar") + i);
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("TotalStar", i);
+                    }
+                    return i.ToString();
+                }
+                return "0";
+            }
+            PlayerPrefs.SetInt("St24", count);
             return count.ToString();
         }
     }
