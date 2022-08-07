@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ParMex2 : MonoBehaviour
+public class ParMex_23Vertical : MonoBehaviour
 {
     public GameObject Play;
     public GameObject CircleLeft;
@@ -276,13 +276,11 @@ public class ParMex2 : MonoBehaviour
                                 {
                                     MoveUpSecondLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
                                 }
                                 else
                                 {
                                     MoveDownSecondLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
                                 }
                             }
                             if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
@@ -291,13 +289,11 @@ public class ParMex2 : MonoBehaviour
                                 {
                                     MoveUpSecondLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
                                 }
                                 else
                                 {
                                     MoveDownSecondLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
                                 }
                             }
                         }
@@ -387,13 +383,11 @@ public class ParMex2 : MonoBehaviour
                                 {
                                     MoveUpSecondLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
                                 }
                                 else
                                 {
                                     MoveDownSecondLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
                                 }
 
                             }
@@ -403,13 +397,11 @@ public class ParMex2 : MonoBehaviour
                                 {
                                     MoveUpSecondLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
                                 }
                                 else
                                 {
                                     MoveDownSecondLine();
                                     MoveDownThirdLine();
-                                    CheckWin(); 
                                 }
 
                             }
@@ -833,7 +825,7 @@ public class ParMex2 : MonoBehaviour
         }
     }
 
-    public void CheckWin()
+    public void CheckWin(bool isSubtract)
     {
         isAnimation = false;
         if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
@@ -847,8 +839,12 @@ public class ParMex2 : MonoBehaviour
             if (!Cont)
                 win = true;
         }
-        PassingPoints();
+        if (isSubtract)
+            PassingPoints();
+        if (win)
+            WinGame();
     }
+
 
     public void PassingPoints()
     {
@@ -886,30 +882,32 @@ public class ParMex2 : MonoBehaviour
             GameObject.Find("Star2").GetComponent<Image>().color = Color;
             LastStar2.GetComponent<Image>().color = Color;
         }
-        if (win)
-        {
-            PausePanel.SetActive(true);
-            Finalimg.SetActive(true);
-            WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("greenBut");
-            WinOrDefeatButton.gameObject.SetActive(true);
 
-            TxtLvl.text = "Пазл собран";
-            if (stars == 3)
-            {
-                CircleRight.SetActive(false);
-                CircleLeft.SetActive(false);
-                Commers.SetActive(false);
-            }
-            if (stars == 2 || stars == 1)
-            {
-                Home.SetActive(false);
-                CircleRight.SetActive(false);
-            }
-            PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
-            TotalStar.text = GetStars.GetTotal();
-            TotalStar2.text = TotalStar.text;
-            //Shadow.SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        PausePanel.SetActive(true);
+        Finalimg.SetActive(true);
+        WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("greenBut");
+        WinOrDefeatButton.gameObject.SetActive(true);
+
+        TxtLvl.text = "Пазл собран";
+        if (stars == 3)
+        {
+            CircleRight.SetActive(false);
+            CircleLeft.SetActive(false);
+            Commers.SetActive(false);
         }
+        if (stars == 2 || stars == 1)
+        {
+            Home.SetActive(false);
+            CircleRight.SetActive(false);
+        }
+        PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
+        TotalStar.text = GetStars.GetTotal();
+        TotalStar2.text = TotalStar.text;
+        //Shadow.SetActive(true);
     }
 
     public bool CheckLock()
@@ -940,7 +938,7 @@ public class ParMex2 : MonoBehaviour
         three = two;
         two = one;
         one = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LF()
@@ -960,7 +958,7 @@ public class ParMex2 : MonoBehaviour
         one = two;
         two = three;
         three = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LS()
@@ -979,7 +977,7 @@ public class ParMex2 : MonoBehaviour
         four = five;
         five = six;
         six = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void RS()
@@ -998,7 +996,7 @@ public class ParMex2 : MonoBehaviour
         six = five;
         five = four;
         four = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LT()
@@ -1017,7 +1015,7 @@ public class ParMex2 : MonoBehaviour
         seven = eight;
         eight = nine;
         nine = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void RT()
@@ -1036,7 +1034,7 @@ public class ParMex2 : MonoBehaviour
         nine = eight;
         eight = seven;
         seven = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void UF()
@@ -1056,7 +1054,7 @@ public class ParMex2 : MonoBehaviour
         one = four;
         four = seven;
         seven = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void DF()
@@ -1076,7 +1074,7 @@ public class ParMex2 : MonoBehaviour
         seven = four;
         four = one;
         one = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void US()
@@ -1096,7 +1094,7 @@ public class ParMex2 : MonoBehaviour
         two = five;
         five = eight;
         eight = g;
-
+        CheckWin(true);
     }
 
     public void DS()
@@ -1116,7 +1114,7 @@ public class ParMex2 : MonoBehaviour
         eight = five;
         five = two;
         two = q;
-
+        CheckWin(true);
     }
 
     public void UT()
@@ -1136,6 +1134,7 @@ public class ParMex2 : MonoBehaviour
         three = six;
         six = nine;
         nine = g;
+        CheckWin(false);
     }
 
     public void DT()
@@ -1155,5 +1154,6 @@ public class ParMex2 : MonoBehaviour
         nine = six;
         six = three;
         three = g;
+        CheckWin(false);
     }
 }
