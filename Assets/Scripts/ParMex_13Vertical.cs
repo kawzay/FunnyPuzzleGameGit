@@ -229,10 +229,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightFirstLine();
+
                                 }
                                 else
                                 {
                                     MoveLeftFirstLine();
+
                                 }
                             }
                             else if (tapPos.y > secHigh - (secHigh * 1.179 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.845))
@@ -240,10 +242,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightSecondLine();
+
                                 }
                                 else
                                 {
-                                    MoveLeftSecondLine();
+                                    MoveLeftSecondLine(); 
+
                                 }
                             }
                             else if (tapPos.y > thiHigh - (thiHigh * 1.32 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.765))
@@ -251,10 +255,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightTrirdLine();
+
                                 }
                                 else
                                 {
                                     MoveLeftThirdLine();
+
                                 }
                             }
                         }
@@ -269,24 +275,27 @@ public class ParMex_13Vertical : MonoBehaviour
                                 {
                                     MoveUpFirstLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
+
                                 }
                                 else
                                 {
                                     MoveDownFirstLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
+
                                 }
-
-
-
                             }
                             if (tapPos.x > secWidt - (secWidt - secWidt * 0.74) && tapPos.x < secWidt + (secWidt * 1.22 - secWidt))
                             {
                                 if (swipeDelta.y > 0)
+                                {
                                     MoveUpSecondLine();
+
+                                }    
                                 else
+                                {
                                     MoveDownSecondLine();
+
+                                } 
                             }
                             if (tapPos.x > thiWidt - (thiWidt - thiWidt * 0.833) && tapPos.x < thiWidt + (thiWidt * 1.15 - thiWidt))
                             {
@@ -294,13 +303,13 @@ public class ParMex_13Vertical : MonoBehaviour
                                 {
                                     MoveUpFirstLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
+
                                 }
                                 else
                                 {
                                     MoveDownFirstLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
+
                                 }
                             }
                         }
@@ -342,11 +351,13 @@ public class ParMex_13Vertical : MonoBehaviour
                             {
                                 if (swipeDelta.x > 0)
                                 {
-                                    MoveRightFirstLine();
+                                    MoveRightFirstLine(); 
+
                                 }
                                 else
                                 {
                                     MoveLeftFirstLine();
+
                                 }
                             }
                             else if (tapPos.y > secHigh - (secHigh * 1.1912 - secHigh) && tapPos.y < secHigh + (secHigh - secHigh * 0.85))
@@ -354,10 +365,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightSecondLine();
+
                                 }
                                 else
                                 {
                                     MoveLeftSecondLine();
+
                                 }
                             }
                             else if (tapPos.y > thiHigh - (thiHigh * 1.2785 - thiHigh) && tapPos.y < thiHigh + (thiHigh - thiHigh * 0.75))
@@ -365,10 +378,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.x > 0)
                                 {
                                     MoveRightTrirdLine();
+
                                 }
                                 else
                                 {
                                     MoveLeftThirdLine();
+
                                 }
                             }
                         }
@@ -383,13 +398,13 @@ public class ParMex_13Vertical : MonoBehaviour
                                 {
                                     MoveUpFirstLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
+
                                 }
                                 else
                                 {
                                     MoveDownFirstLine();
                                     MoveDownThirdLine();
-                                    CheckWin();
+
                                 }
                             }
                             if (tapPos.x > secWidt - (secWidt - secWidt * 0.9204) && tapPos.x < secWidt + (secWidt * 1.0696 - secWidt))
@@ -397,10 +412,12 @@ public class ParMex_13Vertical : MonoBehaviour
                                 if (swipeDelta.y > 0)
                                 {
                                     MoveUpSecondLine();
+                    
                                 }
                                 else
                                 {
                                     MoveDownSecondLine();
+
                                 }
 
                             }
@@ -410,13 +427,13 @@ public class ParMex_13Vertical : MonoBehaviour
                                 {
                                     MoveUpFirstLine();
                                     MoveUpTrirdLine();
-                                    CheckWin();
+
                                 }
                                 else
                                 {
                                     MoveDownFirstLine();
-                                    MoveDownThirdLine(); 
-                                    CheckWin();
+                                    MoveDownThirdLine();
+
                                 }
 
                             }
@@ -840,7 +857,7 @@ public class ParMex_13Vertical : MonoBehaviour
         }
     }
 
-    public void CheckWin()
+    public void CheckWin(bool isSubtract)
     {
         isAnimation = false;
         if (one == 1 && two == 2 && three == 3 && four == 4 && five == 5 &&
@@ -854,8 +871,12 @@ public class ParMex_13Vertical : MonoBehaviour
             if (!Cont)
                 win = true;
         }
-        PassingPoints();
+        if (isSubtract)
+            PassingPoints();
+        if (win)
+            WinGame();
     }
+
 
     public void PassingPoints()
     {
@@ -893,30 +914,32 @@ public class ParMex_13Vertical : MonoBehaviour
             GameObject.Find("Star2").GetComponent<Image>().color = Color;
             LastStar2.GetComponent<Image>().color = Color;
         }
-        if (win)
-        {
-            PausePanel.SetActive(true);
-            Finalimg.SetActive(true);
-            WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("greenBut");
-            WinOrDefeatButton.gameObject.SetActive(true);
 
-            TxtLvl.text = "Пазл собран";
-            if (stars == 3)
-            {
-                CircleRight.SetActive(false);
-                CircleLeft.SetActive(false);
-                Commers.SetActive(false);
-            }
-            if (stars == 2 || stars == 1)
-            {
-                Home.SetActive(false);
-                CircleRight.SetActive(false);
-            }
-            PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
-            TotalStar.text = GetStars.GetTotal();
-            TotalStar2.text = TotalStar.text;
-            //Shadow.SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        PausePanel.SetActive(true);
+        Finalimg.SetActive(true);
+        WinOrDefeatButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("greenBut");
+        WinOrDefeatButton.gameObject.SetActive(true);
+
+        TxtLvl.text = "Пазл собран";
+        if (stars == 3)
+        {
+            CircleRight.SetActive(false);
+            CircleLeft.SetActive(false);
+            Commers.SetActive(false);
         }
+        if (stars == 2 || stars == 1)
+        {
+            Home.SetActive(false);
+            CircleRight.SetActive(false);
+        }
+        PlusStar.text = "+ " + GetStars.StarChanger(Lvl, stars);
+        TotalStar.text = GetStars.GetTotal();
+        TotalStar2.text = TotalStar.text;
+        //Shadow.SetActive(true);
     }
 
     public bool CheckLock()
@@ -947,7 +970,7 @@ public class ParMex_13Vertical : MonoBehaviour
         three = two;
         two = one;
         one = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LF()
@@ -967,7 +990,7 @@ public class ParMex_13Vertical : MonoBehaviour
         one = two;
         two = three;
         three = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LS()
@@ -986,7 +1009,7 @@ public class ParMex_13Vertical : MonoBehaviour
         four = five;
         five = six;
         six = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void RS()
@@ -1005,7 +1028,7 @@ public class ParMex_13Vertical : MonoBehaviour
         six = five;
         five = four;
         four = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void LT()
@@ -1024,7 +1047,7 @@ public class ParMex_13Vertical : MonoBehaviour
         seven = eight;
         eight = nine;
         nine = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void RT()
@@ -1043,7 +1066,7 @@ public class ParMex_13Vertical : MonoBehaviour
         nine = eight;
         eight = seven;
         seven = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void UF()
@@ -1063,6 +1086,7 @@ public class ParMex_13Vertical : MonoBehaviour
         one = four;
         four = seven;
         seven = g;
+        CheckWin(true);
     }
 
     public void DF()
@@ -1082,6 +1106,7 @@ public class ParMex_13Vertical : MonoBehaviour
         seven = four;
         four = one;
         one = g;
+        CheckWin(true);
     }
 
     public void US()
@@ -1101,7 +1126,7 @@ public class ParMex_13Vertical : MonoBehaviour
         two = five;
         five = eight;
         eight = g;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void DS()
@@ -1121,7 +1146,7 @@ public class ParMex_13Vertical : MonoBehaviour
         eight = five;
         five = two;
         two = q;
-        CheckWin();
+        CheckWin(true);
     }
 
     public void UT()
@@ -1141,6 +1166,7 @@ public class ParMex_13Vertical : MonoBehaviour
         three = six;
         six = nine;
         nine = g;
+        CheckWin(false);
     }
 
     public void DT()
@@ -1160,5 +1186,6 @@ public class ParMex_13Vertical : MonoBehaviour
         nine = six;
         six = three;
         three = g;
+        CheckWin(false);
     }
 }

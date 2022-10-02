@@ -80,6 +80,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level19.unity
     guid: 5a4aa88e6449c3c4e8477f6a1b0a8eef
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/Level20.unity
     guid: 50c55a651cca0be409defdd02f4d9a38
@@ -95,4 +96,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level24.unity
     guid: 9d232e823ebb5624fadfa079fceb1ad7
+=======
+>>>>>>> remotes/origin/test
   m_configObjects: {}
